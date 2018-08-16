@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import Main from './containers/Main';
 
 class App extends Component {
   render() {
     return (
-      <p>App</p>
+      <React.Fragment>
+        <p>App</p>
+        <Main/>
+      </React.Fragment>
     );
   }
 }
