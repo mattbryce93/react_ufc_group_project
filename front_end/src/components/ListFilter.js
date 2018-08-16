@@ -2,8 +2,9 @@ import React from 'react';
 
 const ListFilter = () => {
   return(
-
-    <p>ListFilter</p>
+    <React.Fragment>
+      <p>ListFilter</p>
+    </React.Fragment>
   )
 }
 
