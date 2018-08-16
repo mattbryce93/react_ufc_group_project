@@ -8,7 +8,7 @@ class ListContainer extends Component{
       <React.Fragment>
         <p>ListContainer</p>
         <ListFilter/>
-        <List/>
+        <List allPlayers={this.props.allPlayers}/>
       </React.Fragment>
     )
   }

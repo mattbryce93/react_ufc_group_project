@@ -1,8 +1,10 @@
 import React from 'react';
 
-const ListItem = () => {
+const ListItem = (props) => {
+  const prettyName = props.player.first_name + " " + props.player.last_name;
+
   return(
-    <p>ListItem</p>
+    <p>{prettyName}</p>
   )
 }
 
