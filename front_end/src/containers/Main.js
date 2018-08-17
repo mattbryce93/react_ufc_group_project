@@ -103,9 +103,9 @@ class Main extends Component{
   }
 
   apiCall() {
-    fetch('http://ufc-data-api.ufc.com/api/v3/iphone/fighters')
+    fetch('http://localhost:3001/api/fighters')
     .then(response => response.json())
-    .then(fighters => this.setState({allPlayers: fighters}))
+    .then(fighters => console.log(fighters))
   }
 
   render(){
