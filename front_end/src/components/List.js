@@ -1,5 +1,4 @@
 import React from 'react';
-import ListFilter from './ListFilter';
 import ListItem from './ListItem';
 
 const List = (props) => {
@@ -14,7 +13,6 @@ const List = (props) => {
   return(
     <React.Fragment>
       <p>List</p>
-      <ListFilter/>
       {allListItems}
     </React.Fragment>
   )
