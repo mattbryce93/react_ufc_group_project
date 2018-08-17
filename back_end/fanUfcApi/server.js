@@ -4,10 +4,12 @@ const server = express();
 const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 const fetch = require ('node-fetch');
+const cors = require('cors');
 
 server.use(parser.json());
 server.use(express.static('client/build'));
 server.use(parser.urlencoded({extended: true}));
+server.use(cors());
 
 // Connect to the database
 MongoClient.connect('mongodb://localhost:27017', function(err, client){
