@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 
 class ListFilter extends Component {
 
@@ -9,6 +10,7 @@ class ListFilter extends Component {
     }
     this.handleFilterChange = this.handleFilterChange.bind(this);
     this.callFilterCreation = this.callFilterCreation.bind(this);
+    this.generateWeights = this.generateWeights.bind(this);
   }
 
   callFilterCreation(){
@@ -21,6 +23,14 @@ class ListFilter extends Component {
     // this.props.handleFilterCreation(this.state.inputString)
   }
 
+  generateWeights(){
+    const allWeights = this.props.weights();
+    const weightOptions = _.map(allWeights, weight =>{
+      return <option value={weight}>{weight}</option>
+    })
+    return weightOptions;
+  }
+
 
   render() {
     return(
@@ -30,6 +40,9 @@ class ListFilter extends Component {
             placeholder="Search for your fighter"
             value={this.state.inputString}
             onChange={this.handleFilterChange}/>
+            <select>
+              {this.generateWeights()}
+            </select>
           </form>
         </React.Fragment>
       )

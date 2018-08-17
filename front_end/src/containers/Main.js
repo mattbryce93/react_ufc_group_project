@@ -37,7 +37,7 @@ class Main extends Component{
 "statid": 3041,
 "losses": 2,
 "last_name": "Montano",
-"weight_class": "Women_Flyweight",
+"weight_class": "Women_Featherweight",
 "title_holder": true,
 "draws": 0,
 "first_name": "Nicco",

@@ -11,6 +11,7 @@ class ListContainer extends Component{
       filteredItems: null
     }
     this.handleFilterCreation = this.handleFilterCreation.bind(this);
+    this.getWeightClasses = this.getWeightClasses.bind(this);
   }
 
   handleFilterCreation(filter){
@@ -19,7 +20,14 @@ class ListContainer extends Component{
       return _.includes(fighter.first_name.toLowerCase(), filter.toLowerCase());
     });
     this.setState({filteredItems});
-    console.log(this.state.filteredItems);
+  }
+
+  getWeightClasses(){
+    const allUniqByWeight = _.uniqBy(this.props.allPlayers, 'weight_class');
+    const allWeights = _.map(allUniqByWeight, fighter => {
+      return fighter.weight_class
+    })
+    return allWeights;
   }
 
   render(){
@@ -27,11 +35,11 @@ class ListContainer extends Component{
     if(this.state.filteredItems){
       generatedList = <List listedPlayers={this.state.filteredItems}/>;
     }
-    console.log(generatedList);
     return(
+
       <React.Fragment>
         <p>ListContainer</p>
-        <ListFilter handleFilterCreation={this.handleFilterCreation}/>
+        <ListFilter handleFilterCreation={this.handleFilterCreation} weights={this.getWeightClasses}/>
         {generatedList}
       </React.Fragment>
     )
