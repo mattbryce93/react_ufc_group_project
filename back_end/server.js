@@ -29,6 +29,14 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
     }
   )});
 
+  server.get('/api/fighters/:id', function(req, res){
+    fetch(`http://ufc-data-api.ufc.com/api/v3/iphone/fighters/${req.params.id}.json`)
+    .then(res => res.json())
+    .then(data => {
+      res.json(data)
+    }
+  )});
+
   // //Delete route
   // server.delete('/api/fighters', function(req, res){
   //   const filterObject = {};
