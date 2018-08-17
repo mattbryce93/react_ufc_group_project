@@ -2,11 +2,11 @@ import React from 'react';
 import ListItem from './ListItem';
 
 const List = (props) => {
-  if(!props.allPlayers){
+  if(!props.listedPlayers){
     return null;
   }
 
-  const allListItems = props.allPlayers.map((player, index) => {
+  const allListItems = props.listedPlayers.map((player, index) => {
     return <ListItem player={player} index={index}/>
   })
 

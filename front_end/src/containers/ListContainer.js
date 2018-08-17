@@ -8,35 +8,34 @@ class ListContainer extends Component{
   constructor(props){
     super(props);
     this.state = {
-      filteredItems: []
+      filteredItems: null
     }
     this.handleFilterCreation = this.handleFilterCreation.bind(this);
   }
 
   handleFilterCreation(filter){
-    console.log(filter);
     const allItems = this.props.allPlayers;
     const filteredItems = _.filter(allItems, function(fighter){
       return _.includes(fighter.first_name.toLowerCase(), filter.toLowerCase());
     });
-    console.log(filteredItems);
-    this.setState({filteredItems}, this.createListItems);
-  }
-
-  createListItems(){
+    this.setState({filteredItems});
     console.log(this.state.filteredItems);
   }
 
-render(){
-  return(
-    <React.Fragment>
-      <p>ListContainer</p>
-      <ListFilter handleFilterCreation={this.handleFilterCreation}/>
-      //pass in all players as a diffrenet name maybe. which is listItems
-      <List allPlayers={this.props.allPlayers}/>
-    </React.Fragment>
-  )
-}
+  render(){
+    let generatedList = <List listedPlayers={this.props.allPlayers}/>;
+    if(this.state.filteredItems){
+      generatedList = <List listedPlayers={this.state.filteredItems}/>;
+    }
+    console.log(generatedList);
+    return(
+      <React.Fragment>
+        <p>ListContainer</p>
+        <ListFilter handleFilterCreation={this.handleFilterCreation}/>
+        {generatedList}
+      </React.Fragment>
+    )
+  }
 }
 
 export default ListContainer;
