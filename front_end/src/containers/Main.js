@@ -4,6 +4,8 @@ import Title from '../components/Title'
 import NavBar from '../components/NavBar'
 import TeamContainer from './TeamContainer'
 
+
+
 class Main extends Component{
   constructor(props){
     super(props);
@@ -95,6 +97,16 @@ class Main extends Component{
   ]
 }
 }
+
+  componentDidMount(){
+    this.apiCall();
+  }
+
+  apiCall() {
+    fetch('http://ufc-data-api.ufc.com/api/v3/iphone/fighters')
+    .then(response => response.json())
+    .then(fighters => this.setState({allPlayers: fighters}))
+  }
 
   render(){
     return(
