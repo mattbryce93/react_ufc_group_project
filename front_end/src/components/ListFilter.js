@@ -11,6 +11,7 @@ class ListFilter extends Component {
     this.handleFilterChange = this.handleFilterChange.bind(this);
     this.callFilterCreation = this.callFilterCreation.bind(this);
     this.generateWeights = this.generateWeights.bind(this);
+    this.handleWeightSelectorChange = this.handleWeightSelectorChange.bind(this);
   }
 
   callFilterCreation(){
@@ -26,11 +27,16 @@ class ListFilter extends Component {
   generateWeights(){
     const allWeights = this.props.weights();
     const weightOptions = _.map(allWeights, weight =>{
+
       return <option value={weight}>{weight}</option>
     })
     return weightOptions;
   }
 
+  handleWeightSelectorChange(event){
+    // console.log(event.target.value);
+    this.props.onWeightSelected(event.target.value);
+  }
 
   render() {
     return(
@@ -40,7 +46,10 @@ class ListFilter extends Component {
             placeholder="Search for your fighter"
             value={this.state.inputString}
             onChange={this.handleFilterChange}/>
-            <select>
+            <select
+              name="weightclass-selector"
+              id="weightclass-selector"
+              onChange={this.handleWeightSelectorChange}>
               {this.generateWeights()}
             </select>
           </form>

@@ -8,10 +8,12 @@ class ListContainer extends Component{
   constructor(props){
     super(props);
     this.state = {
-      filteredItems: null
+      filteredItems: null,
+      weightFilter: null
     }
     this.handleFilterCreation = this.handleFilterCreation.bind(this);
     this.getWeightClasses = this.getWeightClasses.bind(this);
+    this.handleWeightClassFilter = this.handleWeightClassFilter.bind(this)
   }
 
   handleFilterCreation(filter){
@@ -20,6 +22,11 @@ class ListContainer extends Component{
       return _.includes(fighter.first_name.toLowerCase(), filter.toLowerCase());
     });
     this.setState({filteredItems});
+  }
+
+  handleWeightClassFilter(weightclassFilter){
+    const allFighters = this.props.allPlayers;
+    const filteredItems = _.filter(allFighters, {'weight_class': weightclassFilter});
   }
 
   getWeightClasses(){
@@ -39,11 +46,13 @@ class ListContainer extends Component{
 
       <React.Fragment>
         <p>ListContainer</p>
-        <ListFilter handleFilterCreation={this.handleFilterCreation} weights={this.getWeightClasses}/>
-        {generatedList}
-      </React.Fragment>
-    )
+        <ListFilter
+          handleFilterCreation={this.handleFilterCreation} weights={this.getWeightClasses}
+          onWeightSelected={this.handleWeightClassFilter}/>
+          {generatedList}
+        </React.Fragment>
+      )
+    }
   }
-}
 
-export default ListContainer;
+  export default ListContainer;
