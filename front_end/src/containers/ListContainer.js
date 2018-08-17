@@ -10,16 +10,17 @@ class ListContainer extends Component{
     this.state = {
       filteredItems: null,
       weightFilter: null
+      // weightFiltered: false
     }
     this.handleFilterCreation = this.handleFilterCreation.bind(this);
     this.getWeightClasses = this.getWeightClasses.bind(this);
     this.handleWeightClassFilter = this.handleWeightClassFilter.bind(this)
   }
 
-  handleFilterCreation(filter){
+  handleFilterCreation(searchBoxFilter){
     const allItems = this.props.allPlayers;
     const filteredItems = _.filter(allItems, function(fighter){
-      return _.includes(fighter.first_name.toLowerCase(), filter.toLowerCase());
+      return _.includes(fighter.first_name.toLowerCase(), searchBoxFilter.toLowerCase());
     });
     this.setState({filteredItems});
   }
@@ -27,6 +28,7 @@ class ListContainer extends Component{
   handleWeightClassFilter(weightclassFilter){
     const allFighters = this.props.allPlayers;
     const filteredItems = _.filter(allFighters, {'weight_class': weightclassFilter});
+    this.setState({filteredItems})
   }
 
   getWeightClasses(){
