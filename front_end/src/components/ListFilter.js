@@ -14,28 +14,35 @@ class ListFilter extends Component {
     this.handleWeightSelectorChange = this.handleWeightSelectorChange.bind(this);
   }
 
-  callFilterCreation(){
-    this.props.handleFilterCreation(this.state.inputString)
-  }
 
+// handling text changes
   handleFilterChange(event){
     event.preventDefault();
     this.setState({inputString: event.target.value}, this.callFilterCreation);
     // this.props.handleFilterCreation(this.state.inputString)
   }
 
-  generateWeights(){
-    const allWeights = this.props.weights();
-    const weightOptions = _.map(allWeights, weight =>{
-
-      return <option value={weight}>{weight}</option>
-    })
-    return weightOptions;
+  callFilterCreation(){
+    this.props.handleFilterCreation(this.state.inputString)
   }
 
+// handling weight changes
   handleWeightSelectorChange(event){
     // console.log(event.target.value);
     this.props.onWeightSelected(event.target.value);
+  }
+
+
+
+
+
+  //generate drop down values
+  generateWeights(){
+    const allWeights = this.props.weights();
+    const weightOptions = _.map(allWeights, weight =>{
+      return <option value={weight}>{weight}</option>
+    })
+    return weightOptions;
   }
 
   render() {

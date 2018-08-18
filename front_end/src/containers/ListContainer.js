@@ -9,27 +9,48 @@ class ListContainer extends Component{
     super(props);
     this.state = {
       filteredItems: null,
+      textFilter: null,
       weightFilter: null
       // weightFiltered: false
     }
-    this.handleFilterCreation = this.handleFilterCreation.bind(this);
+    this.handleSearchBoxFilter = this.handleSearchBoxFilter.bind(this);
     this.getWeightClasses = this.getWeightClasses.bind(this);
-    this.handleWeightClassFilter = this.handleWeightClassFilter.bind(this)
+    this.handleWeightClassFilter = this.handleWeightClassFilter.bind(this);
+    this.processFiltering = this.processFiltering.bind(this);
   }
 
-  handleFilterCreation(searchBoxFilter){
-    const allItems = this.props.allPlayers;
-    const filteredItems = _.filter(allItems, function(fighter){
-      return _.includes(fighter.first_name.toLowerCase(), searchBoxFilter.toLowerCase());
-    });
+  handleSearchBoxFilter(searchBoxFilter){
+    this.setState({textFilter: searchBoxFilter}, this.processFiltering)
+  }
+
+  handleWeightClassFilter(weightClassFilter){
+    this.setState({weightFilter: weightClassFilter}, this.processFiltering)
+  }
+
+  processFiltering(){
+    let filteredItems = this.props.allPlayers;
+    if(this.state.textFilter){
+      //incorporate first and last name filtering here
+      let textArray = this.state.textFilter.split(' ');
+      filteredItems = _.filter(filteredItems, (fighter) => {
+        return _.includes(fighter.first_name.toLowerCase(), textArray[0].toLowerCase());
+      });
+      if(textArray.length > 1){
+        filteredItems = _.filter(filteredItems, (fighter) => {
+          return _.includes(fighter.last_name.toLowerCase(), textArray[1].toLowerCase());
+        });
+      }
+    }
+    if(this.state.weightFilter){
+      filteredItems = _.filter(filteredItems, {'weight_class': this.state.weightFilter});
+    }
     this.setState({filteredItems});
   }
 
-  handleWeightClassFilter(weightclassFilter){
-    const allFighters = this.props.allPlayers;
-    const filteredItems = _.filter(allFighters, {'weight_class': weightclassFilter});
-    this.setState({filteredItems})
-  }
+
+
+
+  //generating weight classes
 
   getWeightClasses(){
     const allUniqByWeight = _.uniqBy(this.props.allPlayers, 'weight_class');
@@ -45,11 +66,10 @@ class ListContainer extends Component{
       generatedList = <List listedPlayers={this.state.filteredItems}/>;
     }
     return(
-
       <React.Fragment>
         <p>ListContainer</p>
         <ListFilter
-          handleFilterCreation={this.handleFilterCreation} weights={this.getWeightClasses}
+          handleFilterCreation={this.handleSearchBoxFilter} weights={this.getWeightClasses}
           onWeightSelected={this.handleWeightClassFilter}/>
           {generatedList}
         </React.Fragment>
