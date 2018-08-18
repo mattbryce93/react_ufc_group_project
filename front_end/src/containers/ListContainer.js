@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 import List from '../components/List';
 import ListFilter from '../components/ListFilter';
 
 class ListContainer extends Component{
-
   constructor(props){
     super(props);
     this.state = {
@@ -48,7 +46,7 @@ class ListContainer extends Component{
   }
 
 
-
+ 
 
   //generating weight classes
 
@@ -61,20 +59,14 @@ class ListContainer extends Component{
   }
 
   render(){
-    let generatedList = <List listedPlayers={this.props.allPlayers}/>;
-    if(this.state.filteredItems){
-      generatedList = <List listedPlayers={this.state.filteredItems}/>;
-    }
     return(
       <React.Fragment>
         <p>ListContainer</p>
-        <ListFilter
-          handleFilterCreation={this.handleSearchBoxFilter} weights={this.getWeightClasses}
-          onWeightSelected={this.handleWeightClassFilter}/>
-          {generatedList}
-        </React.Fragment>
-      )
-    }
+        <ListFilter/>
+        <List allPlayers={this.props.allPlayers}/>
+      </React.Fragment>
+    )
   }
+}
 
-  export default ListContainer;
+export default ListContainer;

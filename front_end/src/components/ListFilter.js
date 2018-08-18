@@ -1,20 +1,11 @@
-import React, { Component } from 'react';
-import _ from 'lodash';
+import React from 'react';
 
-class ListFilter extends Component {
+const ListFilter = () => {
+  return(
 
-  constructor(props){
-    super(props);
-    this.state = {
-      inputString: ""
-    }
-    this.handleFilterChange = this.handleFilterChange.bind(this);
-    this.callFilterCreation = this.callFilterCreation.bind(this);
-    this.generateWeights = this.generateWeights.bind(this);
-    this.handleWeightSelectorChange = this.handleWeightSelectorChange.bind(this);
-  }
-
-
+    <p>ListFilter</p>
+  )
+}
 // handling text changes
   handleFilterChange(event){
     event.preventDefault();
