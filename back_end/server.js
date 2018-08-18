@@ -28,7 +28,7 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
       res.json(data)
     })
   })
-
+  
   // Show one fighter
   server.get('/api/fighters/:id', function(req, res){
     fetch(`http://ufc-data-api.ufc.com/api/v3/iphone/fighters/${req.params.id}.json`)
@@ -99,7 +99,21 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
     })
   })
 
-  // Show one team
+  server.get('api/teams/playerteam', function(req, res){
+    const teamsCollection = db.collection('teams');
+    // const filterObject = {player_team: {$exists : true } };
+    // console.log(filterObject);
+    teamsCollection.distinct("player_team", function(err, result){
+      if(err){
+        console.log(err);
+        res.status(500);
+        res.send()
+      }
+      res.json(result);
+    })
+  })
+
+  // Show one team by id
   server.get('/api/teams/:id', function(req, res){
     const teamsCollection = db.collection('teams');
     const objectID = ObjectID(req.params.id);
@@ -114,6 +128,7 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
       // res.json(201);
     })
   })
+
 
   server.listen(3001, function(){
     console.log("Listening on port 3001");

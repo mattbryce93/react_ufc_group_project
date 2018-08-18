@@ -1,12 +1,32 @@
 import React from 'react';
+import _ from 'lodash';
 
 const AddToTeamButton = (props) => {
 
-  const playerTeamURL = "http://localhost:3001/api/team"
+  const playerTeamURL = "http://localhost:3001/api/teams";
+  const playerTeamName = "player_team";
 
-  function handleSubmitClick() {
-    console.log("I have been clicked!");
+  const handleSubmitClick = () => {
+    const data = getAllTeams();
+    data.then(function(result){
+      console.log(filterDBWithTeamName(result));
+    })
   };
+
+  const getAllTeams = () => {
+    return fetch(playerTeamURL)
+    .then(response => response.json())
+    .then(response => {
+      return response;
+    })
+  }
+
+  const filterDBWithTeamName = (json) => {
+    // const filteredArray = _.find(json, 'player_team');
+    const filteredArray = _.map(json, "player_team");
+    // console.log(filteredArray);
+    return filteredArray;
+  }
 
   return(
     <React.Fragment>
