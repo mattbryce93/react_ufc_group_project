@@ -20,52 +20,88 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
   const db = client.db('fighters');
   console.log('Connected to database');
 
-  //Read route
+  // Show all fighters
   server.get('/api/fighters', function(req, res){
     fetch('http://ufc-data-api.ufc.com/api/v3/iphone/fighters')
     .then(res => res.json())
     .then(data => {
       res.json(data)
-    }
-  )});
+    })
+  })
 
+  // Show one fighter
   server.get('/api/fighters/:id', function(req, res){
     fetch(`http://ufc-data-api.ufc.com/api/v3/iphone/fighters/${req.params.id}.json`)
     .then(res => res.json())
     .then(data => {
       res.json(data)
-    }
-  )});
+    })
+  })
 
-  // //Delete route
-  // server.delete('/api/fighters', function(req, res){
-  //   const filterObject = {};
-  //   const fightersCollection = db.collection('roster');
-  //   fightersCollection.deleteMany(filterObject, function(err, result){
-  //     if(err){
-  //       res.status(500);
-  //       res.send();
-  //     }
-  //     res.status(204);
-  //     res.send();
-  //   });
-  // });
-  //
-  // //Create route
-  // server.post('/api/fighters', function(req, res){
-  //   const fightersCollection = db.collection('roster');
-  //   const dataToSave =  req.body;
-  //   fightersCollection.save(dataToSave, function(err, result){
-  //     if(err){
-  //       console.log(err);
-  //       res.status(500);
-  //       res.send();
-  //     }
-  //     console.log('saved to database');
-  //     res.status(201);
-  //     res.json(result.ops[0]);
-  //   })
-  // })
+  //Delete all teams
+  server.delete('/api/team', function(req, res){
+    const filterObject = {};
+    const fightersCollection = db.collection('teams');
+    fightersCollection.deleteMany(filterObject, function(err, result){
+      if(err){
+        res.status(500);
+        res.send();
+      }
+      res.status(204);
+      res.send();
+    })
+  })
+
+  // Delete one team
+  server.delete('/api/team/:id', function(req, res){
+    const fightersCollection = db.collection('teams');
+    const objectID = ObjectID(req.params.id);
+    const filterObject = {_id: objectID};
+    fightersCollection.deleteOne(filterObject, function(err, result){
+      if(err){
+        res.status(500);
+        res.send();
+      }
+      res.status(204);
+      res.json(result);
+    })
+  })
+
+  //Create a new team
+  server.post('/api/team', function(req, res){
+    const fightersCollection = db.collection('teams');
+    const teamToSave = req.body;
+    fightersCollection.save(teamToSave, function(err, result){
+      if(err){
+        console.log(err);
+        res.status(500);
+        res.json();
+      }
+
+      console.log('saved to database');
+      res.status(201);
+      res.json(result.ops[0]);
+    })
+  })
+
+  // Show all teams
+  server.get('/api/team', function(req, res){
+    const fightersCollection = db.collection('teams');
+    fightersCollection.find().toArray(function(err, allTeams){
+      if(err){
+        console.log(err);
+        res.status(500);
+        res.send();
+      }
+      res.status(200);
+      res.json(allTeams);
+
+    })
+  })
+
+
+
+
 
   server.listen(3001, function(){
     console.log("Listening on port 3001");
