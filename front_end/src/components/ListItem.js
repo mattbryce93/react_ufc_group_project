@@ -5,8 +5,6 @@ const ListItem = (props) => {
 
   return(
     <p>{prettyName} {props.player.weight_class}</p>
-
-
   )
 }
 

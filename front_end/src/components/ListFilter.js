@@ -26,15 +26,11 @@ class ListFilter extends Component {
     this.props.handleFilterCreation(this.state.inputString)
   }
 
-// handling weight changes
+  // handling weight changes
   handleWeightSelectorChange(event){
     // console.log(event.target.value);
     this.props.onWeightSelected(event.target.value);
   }
-
-
-
-
 
   //generate drop down values
   generateWeights(){
