@@ -22,9 +22,7 @@ const AddToTeamButton = (props) => {
   }
 
   const filterDBWithTeamName = (json) => {
-    // const filteredArray = _.find(json, 'player_team');
-    const filteredArray = _.map(json, "player_team");
-    // console.log(filteredArray);
+    const filteredArray = _.filter(json, 'player_team');
     return filteredArray;
   }
 
