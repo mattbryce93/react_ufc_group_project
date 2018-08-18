@@ -12,6 +12,7 @@ class ListFilter extends Component {
     this.callFilterCreation = this.callFilterCreation.bind(this);
     this.generateWeights = this.generateWeights.bind(this);
     this.handleWeightSelectorChange = this.handleWeightSelectorChange.bind(this);
+    this.handleTitleSelection = this.handleTitleSelection.bind(this);
   }
 
 
@@ -30,6 +31,11 @@ class ListFilter extends Component {
   handleWeightSelectorChange(event){
     // console.log(event.target.value);
     this.props.onWeightSelected(event.target.value);
+  }
+
+  //handling title selection
+  handleTitleSelection(event){
+    this.props.onTitleSelected(event.target.value);
   }
 
   //generate drop down values
@@ -55,6 +61,13 @@ class ListFilter extends Component {
               onChange={this.handleWeightSelectorChange}>
               {this.generateWeights()}
             </select>
+            {/* //tick box */}
+            <p>All: </p>
+            <input type="radio" name="title" value={null} onChange={this.handleTitleSelection}/>
+            <p>Yes: </p>
+            <input type="radio" name="title" value={true} onChange={this.handleTitleSelection}/>
+            <p>No: </p>
+            <input type="radio" name="title" value={false} onChange={this.handleTitleSelection}/>
           </form>
         </React.Fragment>
       )

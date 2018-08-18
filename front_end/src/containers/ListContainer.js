@@ -10,13 +10,15 @@ class ListContainer extends Component{
     this.state = {
       filteredItems: null,
       textFilter: null,
-      weightFilter: null
+      weightFilter: null,
+      titleFilter: null
       // weightFiltered: false
     }
     this.handleSearchBoxFilter = this.handleSearchBoxFilter.bind(this);
     this.getWeightClasses = this.getWeightClasses.bind(this);
     this.handleWeightClassFilter = this.handleWeightClassFilter.bind(this);
     this.processFiltering = this.processFiltering.bind(this);
+    this.handleTitleFilter = this.handleTitleFilter.bind(this);
   }
 
   handleSearchBoxFilter(searchBoxFilter){
@@ -27,8 +29,13 @@ class ListContainer extends Component{
     this.setState({weightFilter: weightClassFilter}, this.processFiltering)
   }
 
+  handleTitleFilter(titleFilter){
+    this.setState({titleFilter: titleFilter}, this.processFiltering)
+  }
+
   processFiltering(){
     let filteredItems = this.props.allPlayers;
+
     if(this.state.textFilter){
       //incorporate first and last name filtering here
       let textArray = this.state.textFilter.split(' ');
@@ -41,9 +48,23 @@ class ListContainer extends Component{
         });
       }
     }
+
     if(this.state.weightFilter){
       filteredItems = _.filter(filteredItems, {'weight_class': this.state.weightFilter});
     }
+
+    //if statement for titlefilter
+
+    if(this.state.titleFilter){
+      // console.log(this.state.titleFilter);
+      if(this.state.titleFilter === 'true'){
+        filteredItems = _.filter(filteredItems, {'title_holder': true});
+      }
+      if(this.state.titleFilter === 'false'){
+        filteredItems = _.filter(filteredItems, {'title_holder': false});
+      }
+    }
+
     this.setState({filteredItems});
   }
 
@@ -70,7 +91,9 @@ class ListContainer extends Component{
         <p>ListContainer</p>
         <ListFilter
           handleFilterCreation={this.handleSearchBoxFilter} weights={this.getWeightClasses}
-          onWeightSelected={this.handleWeightClassFilter}/>
+          onWeightSelected={this.handleWeightClassFilter}
+          onTitleSelected={this.handleTitleFilter}/>
+
           {generatedList}
         </React.Fragment>
       )
