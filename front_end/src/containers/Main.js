@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import ListContainer from './ListContainer';
 import Title from '../components/Title'
 import NavBar from '../components/NavBar'
-import TeamContainer from './TeamContainer'
-
+import TeamContainer from './TeamContainer';
+import PlayerContainer from './PlayerContainer';
 
 
 class Main extends Component{
   constructor(props){
     super(props);
     this.state = {
-      allPlayers: []
+      allPlayers: [],
+      selectedPlayer: null
   }
   this.apiCall = this.apiCall.bind(this);
 }
@@ -25,6 +26,8 @@ class Main extends Component{
     .then(fighters => this.setState({allPlayers: fighters}))
   }
 
+
+  // <Route path="/player" component={PlayerContainer}/>
   render(){
     return(
       <React.Fragment>
@@ -32,8 +35,10 @@ class Main extends Component{
         <Title/>
         <p>Main</p>
         <TeamContainer/>
+        <PlayerContainer selectedPlayer={this.state.selectedPlayer}/>
         <ListContainer allPlayers={this.state.allPlayers}/>
       </React.Fragment>
+
     )
   }
 }
