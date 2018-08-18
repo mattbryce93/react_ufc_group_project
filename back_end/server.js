@@ -29,14 +29,6 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
     }
   )});
 
-  server.get('/api/fighters/:id', function(req, res){
-    fetch(`http://ufc-data-api.ufc.com/api/v3/iphone/fighters/${req.params.id}.json`)
-    .then(res => res.json())
-    .then(data => {
-      res.json(data)
-    }
-  )});
-
   // //Delete route
   // server.delete('/api/fighters', function(req, res){
   //   const filterObject = {};
@@ -51,21 +43,21 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
   //   });
   // });
   //
-  //Create route
-  server.post('/api/teams', function(req, res){
-    const fightersCollection = db.collection('roster');
-    const dataToSave =  req.body;
-    fightersCollection.save(dataToSave, function(err, result){
-      if(err){
-        console.log(err);
-        res.status(500);
-        res.send();
-      }
-      console.log('saved to database');
-      res.status(201);
-      res.json(result.ops[0]);
-    })
-  })
+  // //Create route
+  // server.post('/api/fighters', function(req, res){
+  //   const fightersCollection = db.collection('roster');
+  //   const dataToSave =  req.body;
+  //   fightersCollection.save(dataToSave, function(err, result){
+  //     if(err){
+  //       console.log(err);
+  //       res.status(500);
+  //       res.send();
+  //     }
+  //     console.log('saved to database');
+  //     res.status(201);
+  //     res.json(result.ops[0]);
+  //   })
+  // })
 
   server.listen(3001, function(){
     console.log("Listening on port 3001");
