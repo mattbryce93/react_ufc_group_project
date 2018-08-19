@@ -34,7 +34,7 @@ class ListContainer extends Component{
   }
 
   processFiltering(){
-    let filteredItems = this.props.allPlayers;
+    let filteredItems = this.props.allFighters;
 
     if(this.state.textFilter){
       //incorporate first and last name filtering here
@@ -74,7 +74,7 @@ class ListContainer extends Component{
   //generating weight classes
 
   getWeightClasses(){
-    const allUniqByWeight = _.uniqBy(this.props.allPlayers, 'weight_class');
+    const allUniqByWeight = _.uniqBy(this.props.allFighters, 'weight_class');
     const allWeights = _.map(allUniqByWeight, fighter => {
       return fighter.weight_class
     })
@@ -82,9 +82,9 @@ class ListContainer extends Component{
   }
 
   render(){
-    let generatedList = <List listedPlayers={this.props.allPlayers}/>;
+    let generatedList = <List listedFighters={this.props.allFighters}/>;
     if(this.state.filteredItems){
-      generatedList = <List listedPlayers={this.state.filteredItems}/>;
+      generatedList = <List listedFighters={this.state.filteredItems}/>;
     }
     return(
       <React.Fragment>
