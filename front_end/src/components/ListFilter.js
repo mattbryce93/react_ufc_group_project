@@ -50,7 +50,7 @@ class ListFilter extends Component {
   render() {
     return(
       <React.Fragment>
-        <div className="filter-box">
+        <div className="filter-container">
           <form className="all-filters">
             <input type="text"
               placeholder="Search for your fighter"
@@ -62,13 +62,12 @@ class ListFilter extends Component {
                 onChange={this.handleWeightSelectorChange}>
                 {this.generateWeights()}
               </select>
-              {/* //tick box */}
-              <p>All: </p>
-              <input type="radio" name="title" value={undefined} onChange={this.handleTitleSelection}/>
-              <p>Yes: </p>
-              <input type="radio" name="title" value={true} onChange={this.handleTitleSelection}/>
-              <p>No: </p>
-              <input type="radio" name="title" value={false} onChange={this.handleTitleSelection}/>
+              <div className="titleHolder-radio-container">
+              Title holder?
+              <input type="radio" name="title" value={undefined} onChange={this.handleTitleSelection}/>All
+              <input type="radio" name="title" value={true} onChange={this.handleTitleSelection}/>Yes
+              <input type="radio" name="title" value={false} onChange={this.handleTitleSelection}/>No
+              </div>
             </form>
           </div>
         </React.Fragment>
