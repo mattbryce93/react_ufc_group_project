@@ -1,0 +1,31 @@
+#search-form {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.searchbox {
+  width: 100%;
+  font-size: 48px;
+  font-weight: bold;
+  color: black;
+}
+
+#filters-form {
+  display: flex;
+}
+
+#weightclass-selector {
+  margin: 5px;
+}
+
+.titleHolder-radio-container {
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.radiobutton-container {
+  margin-left: 3px;
+  margin-right: 3px;
+}
