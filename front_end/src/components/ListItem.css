@@ -1,3 +1,30 @@
 .fighterTable img {
   width: 90px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.fighterTable td {
+  border-bottom: 1px solid #ddd;
+}
+
+.fighterTable-list-item {
+  /* margin-right: 10px; */
+}
+
+.fighterTable-list-item:hover{
+  background-color: rgb(73, 73, 73, 0.05)
+}
+
+.fighterTable-fighter-name {
+  font-size: 24px;
+  margin-right: 10px;
+  padding-left: 10px;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.fighterTable-fighter-weightclass {
+  padding-right: 10px;
+  padding-left: 10px;
+  /* border-bottom: 1px solid #ddd; */
 }

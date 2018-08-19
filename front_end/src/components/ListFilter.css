@@ -5,8 +5,8 @@
 }
 
 .searchbox {
+  width: 100%;
   font-size: 48px;
-  padding: 6px;
   font-weight: bold;
   color: black;
 }

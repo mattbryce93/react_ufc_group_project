@@ -1,3 +1,14 @@
 .fighterTable {
   margin-top: 80px;
+  width: 100%;
+  border: none;
+  border-spacing: 0px;
+}
+
+.fighterTable-header tr {
+  /* text-align: left; */
+}
+
+.fighterTable-header th {
+  padding-bottom: 10px;
 }
