@@ -30,7 +30,7 @@ class Main extends Component{
       <React.Fragment>
         <NavBar/>
         <Title/>
-        <p>Main</p>
+        {/* <p>Main</p> */}
         <TeamContainer/>
         <ListContainer allPlayers={this.state.allPlayers}/>
       </React.Fragment>

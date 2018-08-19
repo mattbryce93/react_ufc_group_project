@@ -38,11 +38,11 @@ class ListFilter extends Component {
     this.props.onTitleSelected(event.target.value);
   }
 
-  //generate drop down values
+  //generate weightclass drop down values
   generateWeights(){
     const allWeights = this.props.weights();
-    const weightOptions = _.map(allWeights, weight =>{
-      return <option value={weight}>{weight}</option>
+    const weightOptions = _.map(allWeights, weight => {
+      return <option value={weight} key={weight}>{weight}</option>
     })
     return weightOptions;
   }
@@ -63,7 +63,7 @@ class ListFilter extends Component {
             </select>
             {/* //tick box */}
             <p>All: </p>
-            <input type="radio" name="title" value={null} onChange={this.handleTitleSelection}/>
+            <input type="radio" name="title" value={undefined} onChange={this.handleTitleSelection}/>
             <p>Yes: </p>
             <input type="radio" name="title" value={true} onChange={this.handleTitleSelection}/>
             <p>No: </p>

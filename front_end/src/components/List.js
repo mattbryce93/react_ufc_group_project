@@ -1,5 +1,4 @@
 import React from 'react';
-import ListFilter from './ListFilter';
 import ListItem from './ListItem';
 
 const List = (props) => {
@@ -13,9 +12,12 @@ const List = (props) => {
 
   return(
     <React.Fragment>
-      <h4>Player search</h4>
       <table className="fighter-table">
         <tbody>
+          <tr className="fighter-table-header">
+            <th>Name</th>
+            <th>Weight class</th>
+          </tr>
           {allListItems}
         </tbody>
       </table>

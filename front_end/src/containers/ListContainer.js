@@ -89,12 +89,14 @@ class ListContainer extends Component{
     return(
       <React.Fragment>
         <div className="list-container">
-          <p>ListContainer</p>
-          <ListFilter
-            handleFilterCreation={this.handleSearchBoxFilter} weights={this.getWeightClasses}
-            onWeightSelected={this.handleWeightClassFilter}
-            onTitleSelected={this.handleTitleFilter}/>
-            {generatedList}
+          <h4>Search for your fighter</h4>
+          <div className="list-filter-container">
+            <ListFilter
+              handleFilterCreation={this.handleSearchBoxFilter} weights={this.getWeightClasses}
+              onWeightSelected={this.handleWeightClassFilter}
+              onTitleSelected={this.handleTitleFilter}/>
+              {generatedList}
+            </div>
           </div>
         </React.Fragment>
 

@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <p>App</p>
+        {/* <p>App</p> */}
         <Main/>
       </React.Fragment>
     );
