@@ -8,13 +8,17 @@ const List = (props) => {
   }
 
   const allListItems = props.listedPlayers.map((player, index) => {
-    return <ListItem player={player} index={index}/>
+    return <ListItem player={player} index={index} key={index}/>
   })
 
   return(
     <React.Fragment>
-      <p>List</p>
-      {allListItems}
+      <h4>Player search</h4>
+      <table className="fighter-table">
+        <tbody>
+          {allListItems}
+        </tbody>
+      </table>
     </React.Fragment>
   )
 }

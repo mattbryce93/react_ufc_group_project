@@ -4,7 +4,12 @@ const ListItem = (props) => {
   const prettyName = props.player.first_name + " " + props.player.last_name;
 
   return(
-    <p>{prettyName} {props.player.weight_class}</p>
+    <React.Fragment>
+        <tr className="fighter-table-list-item">
+          <td className="fighter-table-fighter-name">{prettyName}</td>
+          <td className="fighter-taboe-fighter-weightclass">{props.player.weight_class}</td>
+        </tr>
+    </React.Fragment>
 
 
   )
