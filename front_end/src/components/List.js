@@ -12,9 +12,9 @@ const List = (props) => {
 
   return(
     <React.Fragment>
-      <table className="fighter-table">
+      <table className="fighterTable">
         <tbody>
-          <tr className="fighter-table-header">
+          <tr className="fighterTable-header">
             <th>Name</th>
             <th>Weight class</th>
           </tr>

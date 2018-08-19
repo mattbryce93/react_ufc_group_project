@@ -5,9 +5,9 @@ const ListItem = (props) => {
 
   return(
     <React.Fragment>
-        <tr className="fighter-table-list-item">
-          <td className="fighter-table-fighter-name">{prettyName}</td>
-          <td className="fighter-table-fighter-weightclass">{props.fighter.weight_class}</td>
+        <tr className="fighterTable-list-item">
+          <td className="fighterTable-fighter-name">{prettyName}</td>
+          <td className="fighterTable-fighter-weightclass">{props.fighter.weight_class}</td>
         </tr>
     </React.Fragment>
 
