@@ -26,22 +26,24 @@ class Main extends Component{
     .then(fighters => this.setState
       ({
         allFighters: fighters
-        .filter(fighter => fighter.fighter_status === 'Active')
+        .filter(fighter => fighter.fighter_status === 'Active'
+        && fighter.first_name != '...'
+        && fighter.first_name != '.')
       })
     )
   }
 
-render(){
-  return(
-    <React.Fragment>
-      <NavBar/>
-      <Title/>
-      {/* <p>Main</p> */}
-      <TeamContainer/>
-      <ListContainer allFighters={this.state.allFighters}/>
-    </React.Fragment>
-  )
-}
+  render(){
+    return(
+      <React.Fragment>
+        <NavBar/>
+        <Title/>
+        {/* <p>Main</p> */}
+        <TeamContainer/>
+        <ListContainer allFighters={this.state.allFighters}/>
+      </React.Fragment>
+    )
+  }
 }
 
 export default Main;
