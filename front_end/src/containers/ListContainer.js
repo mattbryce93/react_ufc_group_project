@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import List from '../components/List';
 import ListFilter from '../components/ListFilter';
+import './ListContainer.css'
 
 class ListContainer extends Component{
 
@@ -88,8 +89,6 @@ class ListContainer extends Component{
     return(
       <React.Fragment>
         <div className="list-container">
-          <h4>Search for your fighter</h4>
-          <div className="list-filter-container">
             <ListFilter
               handleSearchBoxCreation={this.handleSearchBoxFilter}
               weights={this.getWeightClasses}
@@ -97,7 +96,6 @@ class ListContainer extends Component{
               onTitleSelected={this.handleTitleFilter}/>
               {generatedList}
             </div>
-          </div>
         </React.Fragment>
 
       )

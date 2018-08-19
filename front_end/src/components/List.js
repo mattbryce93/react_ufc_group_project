@@ -1,5 +1,6 @@
 import React from 'react';
 import ListItem from './ListItem';
+import './List.css';
 
 const List = (props) => {
   if(!props.listedFighters){

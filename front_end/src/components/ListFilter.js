@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import './ListFilter.css'
 
 class ListFilter extends Component {
 
@@ -51,11 +52,13 @@ class ListFilter extends Component {
     return(
       <React.Fragment>
         <div className="filter-container">
-          <form className="all-filters">
-            <input type="text"
+          <form id="search-form">
+            <input className="searchbox" type="text"
               placeholder="Search for your fighter"
               value={this.state.inputString}
               onChange={this.handleTextSearchChange}/>
+            </form>
+            <form id="filters-form">
               <select
                 name="weightclass-selector"
                 id="weightclass-selector"
@@ -63,10 +66,16 @@ class ListFilter extends Component {
                 {this.generateWeights()}
               </select>
               <div className="titleHolder-radio-container">
-              Title holder?
-              <input type="radio" name="title" value={undefined} onChange={this.handleTitleSelection}/>All
-              <input type="radio" name="title" value={true} onChange={this.handleTitleSelection}/>Yes
-              <input type="radio" name="title" value={false} onChange={this.handleTitleSelection}/>No
+                Title holder?
+                <div className="radiobutton-container">
+                  <input type="radio" name="title" value={undefined} onChange={this.handleTitleSelection}/>All
+                </div>
+                <div className="radiobutton-container">
+                  <input type="radio" name="title" value={true} onChange={this.handleTitleSelection}/>Yes
+                </div>
+                <div className="radiobutton-container">
+                  <input type="radio" name="title" value={false} onChange={this.handleTitleSelection}/>No
+                </div>
               </div>
             </form>
           </div>

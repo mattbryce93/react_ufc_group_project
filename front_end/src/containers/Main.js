@@ -3,7 +3,7 @@ import ListContainer from './ListContainer';
 import Title from '../components/Title'
 import NavBar from '../components/NavBar'
 import TeamContainer from './TeamContainer'
-import _ from 'lodash';
+import "./Main.css"
 
 
 class Main extends Component{
@@ -23,27 +23,28 @@ class Main extends Component{
     fetch('http://localhost:3001/api/fighters')
     .then(response => response.json())
     // .then(
-    .then(fighters => this.setState
-      ({
-        allFighters: fighters
-        .filter(fighter => fighter.fighter_status === 'Active'
-        && fighter.first_name != '...'
-        && fighter.first_name != '.')
-      })
-    )
-  }
+    .then(fighters => this.setState({
+      allFighters: fighters
+      .filter(fighter => fighter.fighter_status === 'Active'
+      && fighter.first_name !== '...'
+      && fighter.first_name !== '.')
+    })
+  )
+}
 
-  render(){
-    return(
-      <React.Fragment>
-        <NavBar/>
-        <Title/>
+render(){
+  return(
+    <React.Fragment>
+      <NavBar/>
+      <Title/>
+      <TeamContainer/>
+      <div className="search-container">
         {/* <p>Main</p> */}
-        <TeamContainer/>
         <ListContainer allFighters={this.state.allFighters}/>
-      </React.Fragment>
-    )
-  }
+      </div>
+    </React.Fragment>
+  )
+}
 }
 
 export default Main;
