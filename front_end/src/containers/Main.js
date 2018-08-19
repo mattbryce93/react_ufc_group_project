@@ -10,7 +10,7 @@ class Main extends Component{
   constructor(props){
     super(props);
     this.state = {
-      allPlayers: []
+      allFighters: []
   }
   this.apiCall = this.apiCall.bind(this);
 }
@@ -22,7 +22,7 @@ class Main extends Component{
   apiCall() {
     fetch('http://localhost:3001/api/fighters')
     .then(response => response.json())
-    .then(fighters => this.setState({allPlayers: fighters}))
+    .then(fighters => this.setState({allFighters: fighters}))
   }
 
   render(){
@@ -30,9 +30,9 @@ class Main extends Component{
       <React.Fragment>
         <NavBar/>
         <Title/>
-        <p>Main</p>
+        {/* <p>Main</p> */}
         <TeamContainer/>
-        <ListContainer allPlayers={this.state.allPlayers}/>
+        <ListContainer allFighters={this.state.allFighters}/>
       </React.Fragment>
     )
   }

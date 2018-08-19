@@ -1,10 +1,19 @@
 import React from 'react';
+import "./ListItem.css"
 
 const ListItem = (props) => {
-  const prettyName = props.player.first_name + " " + props.player.last_name;
+  const prettyName = props.fighter.first_name + " " + props.fighter.last_name;
+  const thumbnailImg = <img className="fighterTable-fighter-thumbnail" src={props.fighter.profile_image} alt={prettyName}/>;
+
 
   return(
-    <p>{prettyName} {props.player.weight_class}</p>
+    <React.Fragment>
+      <tr className="fighterTable-list-item">
+        <td>{thumbnailImg}</td>
+        <td className="fighterTable-fighter-name">{prettyName}</td>
+        <td className="fighterTable-fighter-weightclass">{props.fighter.weight_class}</td>
+      </tr>
+    </React.Fragment>
 
 
   )
