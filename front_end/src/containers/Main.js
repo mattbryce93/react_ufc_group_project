@@ -23,9 +23,7 @@ class Main extends Component{
   componentDidMount(){
     this.apiCall();
   }
-
-  //write function to change selectedFighter to the id
-
+  
   handleFighterSelect(event){
     this.setState({selectedFighter: event.target.id})
   }

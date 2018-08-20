@@ -7,6 +7,8 @@ class SelectedFighter extends Component{
       selectedFighter: null
     }
     this.fetchFighterObject = this.fetchFighterObject.bind(this);
+    this.prettyName = this.prettyName.bind(this);
+    this.getAge = this.getAge.bind(this);
   }
 
   fetchFighterObject(){
@@ -24,24 +26,39 @@ class SelectedFighter extends Component{
     this.fetchFighterObject();
   }
 
-//   apiCall() {
-//     fetch('http://localhost:3001/api/fighters')
-//     .then(response => response.json())
-//     // .then(
-//     .then(fighters => this.setState({
-//       allFighters: fighters
-//       .filter(fighter => fighter.fighter_status === 'Active'
-//       && fighter.first_name !== '...'
-//       && fighter.first_name !== '.')
-//     })
-//   )
-// }
+  prettyName(){
+    if(!this.state.selectedFighter){
+      return null;
+    }
+    if(!this.state.selectedFighter.nickname){
+      return(
+        <p>Name: {this.state.selectedFighter.first_name} {this.state.selectedFighter.last_name}</p>
+      )
+    }
+    return(
+      <p>Name: {this.state.selectedFighter.first_name} "{this.state.selectedFighter.nickname}" {this.state.selectedFighter.last_name}</p>
+    )
+  }
+
+  getAge(){
+    if(!this.state.selectedFighter){
+      return null;
+    }
+    const currentDate = new Date();
+    const fightersDOB = new Date(this.state.selectedFighter.dob);
+    const parsedCurrentDate = Date.parse(currentDate);
+    const parsedFightersDOB = Date.parse(fightersDOB);
+    const age_millseconds = parsedCurrentDate - parsedFightersDOB
+    const age = parseInt(age_millseconds/(1000 * 60 * 60 * 24 * 365.25));
+    return (<p>Age: {age}</p>);
+  }
 
   render(){
     return(
       <React.Fragment>
         <p>Selected Fighter</p>
-        <p>{this.props.selectedFighter}</p>
+        {this.prettyName()}
+        {this.getAge()}
         <button onClick={this.props.hideSelectedPlayer}>Back to List</button>
       </React.Fragment>
     )
