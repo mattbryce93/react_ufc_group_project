@@ -1,10 +1,11 @@
 import React from 'react';
-import TeamPlayer from '../components/TeamPlayer';
+import TeamItem from '../components/TeamItem';
+import TeamList from './TeamList'
 
 const TeamContainer = () => (
   <React.Fragment>
     <p>TeamContainer</p>
-    <TeamPlayer/>
+    <TeamList/>
   </React.Fragment>
 )
 

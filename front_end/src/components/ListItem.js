@@ -1,4 +1,5 @@
 import React from 'react';
+import AddToTeamButton from './AddToTeamButton'
 import "./ListItem.css";
 
 const ListItem = (props) => {
@@ -11,10 +12,9 @@ const ListItem = (props) => {
         <td id={props.fighter.id}>{thumbnailImg}</td>
         <td id={props.fighter.id} className="fighterTable-fighter-name">{prettyName}</td>
         <td id={props.fighter.id} className="fighterTable-fighter-weightclass">{props.fighter.weight_class}</td>
-
+    <td className="fighterTable-addToTeamButton"><AddToTeamButton fighter={props.fighter}/></td>
       </tr>
     </React.Fragment>
-
 
   )
 }

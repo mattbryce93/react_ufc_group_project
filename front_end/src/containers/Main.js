@@ -12,7 +12,8 @@ class Main extends Component{
     super(props);
     this.state = {
       allFighters: [],
-      selectedFighter: null
+      selectedFighter: null,
+      teamFighters: []
     }
     this.apiCall = this.apiCall.bind(this);
     this.handleFighterSelect = this.handleFighterSelect.bind(this);
@@ -67,7 +68,7 @@ render(){
     <React.Fragment>
       <NavBar/>
       <Title/>
-      <TeamContainer/>
+<TeamContainer allTeamFighters={this.state.teamFighters}/>
       {this.hideListContainer()}
     </React.Fragment>
   )
