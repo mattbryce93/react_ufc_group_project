@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import FighterBarGraph from './FighterBarGraph';
 
 class SelectedFighter extends Component{
   constructor(props){
@@ -59,6 +60,7 @@ class SelectedFighter extends Component{
         <p>Selected Fighter</p>
         {this.prettyName()}
         {this.getAge()}
+        <FighterBarGraph selectedFighter={this.state.selectedFighter}/>
         <button onClick={this.props.hideSelectedPlayer}>Back to List</button>
       </React.Fragment>
     )
