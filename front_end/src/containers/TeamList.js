@@ -1,20 +1,20 @@
 import React from 'react';
-import TeamItem from '../components/TeamItem'
+import TeamListItem from '../components/TeamListItem'
 import DeleteAllFromTeamButton from '../components/DeleteAllFromTeamButton'
 
 const TeamList = (props) => {
 
   const allTeamFighterItems = props.allTeamFighters.map((fighter, index) => {
-    return <li id={fighter} index={index} key={index}>{fighter.first_name}</li>
+    return <TeamListItem
+      fighter={fighter}
+      index={index}
+      key={index}/>
   })
 
   return(
     <React.Fragment>
       <p>Team List</p>
-      <TeamItem/>
-      <ol>
         {allTeamFighterItems}
-      </ol>
       <DeleteAllFromTeamButton />
     </React.Fragment>
   )

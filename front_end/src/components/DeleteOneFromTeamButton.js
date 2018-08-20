@@ -3,7 +3,7 @@ import React from 'react'
 const DeleteOneFromTeamButton = () => {
 
   return(
-    <p>lool</p>
+    <p></p>
   )
 }
 
