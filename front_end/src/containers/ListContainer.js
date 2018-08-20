@@ -82,9 +82,9 @@ class ListContainer extends Component{
   }
 
   render(){
-    let generatedList = <List listedFighters={this.props.allFighters}/>;
+    let generatedList = <List listedFighters={this.props.allFighters} handleFighterSelect={this.props.handleFighterSelect}/>;
     if(this.state.filteredFighters){
-      generatedList = <List listedFighters={this.state.filteredFighters}/>;
+      generatedList = <List listedFighters={this.state.filteredFighters} handleFighterSelect={this.props.handleFighterSelect}/>;
     }
     return(
       <React.Fragment>
