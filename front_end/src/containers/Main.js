@@ -68,6 +68,7 @@ hideListContainer(){
 }
 
 handleAddToTeamButton(){
+  console.log("I have been clicked");
   // componentDidMount()
 }
 

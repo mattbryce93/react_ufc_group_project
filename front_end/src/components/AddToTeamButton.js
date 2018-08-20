@@ -25,6 +25,7 @@ const AddToTeamButton = (props) => {
     data.then(function(result){
       addSelectedFighterIdToPlayerTeam(filterDBToPlayerTeam(result));
     })
+    props.handleAddToTeamButton();
   };
 
   const addSelectedFighterIdToPlayerTeam = (playerTeam) => {
