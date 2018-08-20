@@ -1,5 +1,4 @@
 import React from 'react';
-import TeamItem from '../components/TeamItem';
 import TeamList from './TeamList'
 
 const TeamContainer = () => (

@@ -4,6 +4,7 @@ import Title from '../components/Title'
 import NavBar from '../components/NavBar'
 import TeamContainer from './TeamContainer';
 import FighterContainer from './FighterContainer';
+import AddToTeamButton from '../components/AddToTeamButton';
 import "./Main.css"
 
 
@@ -19,6 +20,7 @@ class Main extends Component{
     this.handleFighterSelect = this.handleFighterSelect.bind(this);
     this.hideSelectedPlayer = this.hideSelectedPlayer.bind(this);
     this.hideListContainer = this.hideListContainer.bind(this);
+    this.handleAddToTeamButton = this.handleAddToTeamButton.bind(this);
   }
 
   componentDidMount(){
@@ -48,19 +50,29 @@ class Main extends Component{
   )
 }
 
-  hideListContainer(){
-    if(!this.state.selectedFighter){
-      return(
-        <div className="search-container">
-          <ListContainer allFighters={this.state.allFighters} handleFighterSelect={this.handleFighterSelect}/>
-        </div>
-      )
-    }
-    return (
-      <FighterContainer selectedFighter={this.state.selectedFighter} hideSelectedPlayer={this.hideSelectedPlayer}/>
+hideListContainer(){
+  if(!this.state.selectedFighter){
+    return(
+      <div className="search-container">
+        <ListContainer
+          allFighters={this.state.allFighters}
+          handleFighterSelect={this.handleFighterSelect}
+        handleAddToTeamButton={this.handleAddToTeamButton}/>
+      </div>
     )
   }
+  return (
+    <FighterContainer
+      selectedFighter={this.state.selectedFighter}
+      hideSelectedPlayer={this.hideSelectedPlayer}/>
+  )
+}
 
+handleAddToTeamButton(){
+  return (
+    <AddToTeamButton/>
+  )
+}
 
 
 render(){
@@ -68,7 +80,7 @@ render(){
     <React.Fragment>
       <NavBar/>
       <Title/>
-<TeamContainer allTeamFighters={this.state.teamFighters}/>
+      <TeamContainer allTeamFighters={this.state.teamFighters} selectedFighter={this.state.selectedFighter}/>
       {this.hideListContainer()}
     </React.Fragment>
   )
