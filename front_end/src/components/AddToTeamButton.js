@@ -22,10 +22,11 @@ const AddToTeamButton = (props) => {
 
   const handleSubmitClick = () => {
     const data = getAllTeams();
-    data.then(function(result){
+    data
+    .then(function(result){
       addSelectedFighterIdToPlayerTeam(filterDBToPlayerTeam(result));
     })
-    props.handleAddToTeamButton();
+    .then(props.handleAddToTeamButton());
   };
 
   const addSelectedFighterIdToPlayerTeam = (playerTeam) => {

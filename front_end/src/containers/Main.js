@@ -13,6 +13,7 @@ class Main extends Component{
     this.state = {
       allFighters: [],
       selectedFighter: null,
+
       teamFighters: []
     }
     this.apiCall = this.apiCall.bind(this);
@@ -24,7 +25,10 @@ class Main extends Component{
 
   componentDidMount(){
     this.apiCall();
+    this.playerTeamAPICall();
   }
+
+
 
   //write function to change selectedFighter to the id
 
@@ -49,6 +53,14 @@ class Main extends Component{
   )
 }
 
+playerTeamAPICall(){
+  fetch('http://localhost:3001/api/teams')
+  .then(response => response.json())
+  .then(team => this.setState({
+    teamFighters: team[0].player_team
+  }))
+}
+
 hideListContainer(){
   if(!this.state.selectedFighter){
     return(
@@ -56,34 +68,35 @@ hideListContainer(){
         <ListContainer
           allFighters={this.state.allFighters}
           handleFighterSelect={this.handleFighterSelect}
-        handleAddToTeamButton={this.handleAddToTeamButton}/>
-      </div>
-    )
-  }
-  return (
-    <FighterContainer
-      selectedFighter={this.state.selectedFighter}
-      hideSelectedPlayer={this.hideSelectedPlayer}/>
-  )
-}
+          handleAddToTeamButton={this.handleAddToTeamButton}/>
+        </div>
+      )
+    }
+    return (
+      <FighterContainer
+        selectedFighter={this.state.selectedFighter}
+        hideSelectedPlayer={this.hideSelectedPlayer}/>
+      )
+    }
 
-handleAddToTeamButton(){
-  console.log("I have been clicked");
-  // componentDidMount()
-}
+    handleAddToTeamButton(){
+      this.playerTeamAPICall();
+      console.log('i have been clicked');
+    }
 
 
-render(){
-  return(
-    <React.Fragment>
-      <NavBar/>
-      <Title/>
-      <TeamContainer allTeamFighters={this.state.teamFighters} selectedFighter={this.state.selectedFighter} teamClicky = {this.handleAddToTeamButton}/>
-      {this.hideListContainer()}
-    </React.Fragment>
-  )
+    render(){
+      return(
+        <React.Fragment>
+          <NavBar/>
+          <Title/>
+          <TeamContainer
+            allTeamFighters={this.state.teamFighters}/>
+            {this.hideListContainer()}
+          </React.Fragment>
+        )
 
-}
-}
+      }
+    }
 
-export default Main;
+    export default Main;
