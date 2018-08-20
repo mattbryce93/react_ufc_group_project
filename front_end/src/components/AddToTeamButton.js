@@ -69,7 +69,7 @@ const AddToTeamButton = (props) => {
       <input type="submit"
         value="Add to team"
         onClick={handleSubmitClick}
-        className="fighterTable-list-item-addToTeam"
+        className="fighterTable-list-item-addToTeam-BUTTON"
         // styling in ListItem.css
       />
     </React.Fragment>
