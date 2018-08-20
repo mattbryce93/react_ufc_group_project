@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import FighterBarGraph from './FighterBarGraph';
+import MapWrapper from './MapWrapper';
 
 class SelectedFighter extends Component{
   constructor(props){
@@ -130,6 +131,7 @@ render(){
       {this.getStrengths()}
       {this.getAverageFightDuration()}
       <FighterBarGraph selectedFighter={this.state.selectedFighter}/>
+      <MapWrapper/>
       <button onClick={this.props.hideSelectedPlayer}>Back to List</button>
     </React.Fragment>
   )
