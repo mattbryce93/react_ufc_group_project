@@ -7,19 +7,19 @@ const TeamListItem = (props) => {
   const prettyName = props.fighter.first_name + " " + props.fighter.last_name;
   const thumbnailImg = <img
     id={props.fighter.id}
-    className="teamTable-fighter-thumbnail"
+    className="teamListItem-fighter-thumbnail"
     src={props.fighter.profile_image}
     alt={prettyName}/>;
 
-  return(
-    <React.Fragment>
-      <tr>
-        <td>{thumbnailImg}</td>
-      </tr>
-      {prettyName}
-      <DeleteOneFromTeamButton/>
-    </React.Fragment>
-  )
-}
+    return(
+      <React.Fragment>
+        <div className="teamListItem">
+          {thumbnailImg}
+          {prettyName}
+          <DeleteOneFromTeamButton/>
+        </div>
+      </React.Fragment>
+    )
+  }
 
-export default TeamListItem;
+  export default TeamListItem;

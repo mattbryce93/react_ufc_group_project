@@ -9,15 +9,17 @@ const TeamList = (props) => {
       fighter={fighter}
       index={index}
       key={index}/>
-  })
+    })
 
-  return(
-    <React.Fragment>
-      <p>Team List</p>
-        {allTeamFighterItems}
-      <DeleteAllFromTeamButton />
-    </React.Fragment>
-  )
-}
+    return(
+      <React.Fragment>
+        <div className="team-container">
+          <p>Your chosen team:</p>
+          {allTeamFighterItems}
+          <DeleteAllFromTeamButton />
+        </div>
+      </React.Fragment>
+    )
+  }
 
-export default TeamList;
+  export default TeamList;

@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 
+
 const AddToTeamButton = (props) => {
 
   const playerTeamURL = "http://localhost:3001/api/teams";
@@ -33,7 +34,7 @@ const AddToTeamButton = (props) => {
     const newTeamArray = playerTeam[0].player_team;
     newTeamArray.push(selectedFighter);
 
-    const newTeam = {"player_team": newTeamArray};
+    const newTeam = {"player_team": [newTeamArray]};
     saveTeam(newTeam);
 
     const existingDBTeamId = playerTeam[0]._id;

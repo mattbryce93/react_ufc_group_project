@@ -1,12 +1,12 @@
 import React from 'react';
 import TeamList from './TeamList'
-// import DeleteAllButton from 
+// import DeleteAllButton from
 
 const TeamContainer = (props) => {
 
   return(
     <React.Fragment>
-      <p>TeamContainer</p>
+      {/* <p>TeamContainer</p> */}
       <TeamList allTeamFighters={props.allTeamFighters}/>
     </React.Fragment>
   )
