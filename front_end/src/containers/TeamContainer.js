@@ -1,13 +1,16 @@
 import React from 'react';
 import TeamList from './TeamList'
+import './TeamContainer.css'
 // import DeleteAllButton from
 
 const TeamContainer = (props) => {
 
   return(
     <React.Fragment>
-      {/* <p>TeamContainer</p> */}
-      <TeamList allTeamFighters={props.allTeamFighters}/>
+      <div className="team-container">
+        {/* <p>TeamContainer</p> */}
+        <TeamList allTeamFighters={props.allTeamFighters}/>
+      </div>
     </React.Fragment>
   )
 }

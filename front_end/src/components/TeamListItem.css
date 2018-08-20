@@ -1,5 +1,19 @@
 .teamListItem-fighter-thumbnail {
   width: 90px;
   padding-bottom: 5px;
-  padding-top: 5px;
+}
+
+.teamListItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.teamListItem-divider {
+  margin-top: 7px;
+  margin-bottom: 15px;
+  height:1px;
+  width: 140%;
+  background:rgb(74, 189, 172);
 }

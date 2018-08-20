@@ -17,7 +17,9 @@ const TeamListItem = (props) => {
           {thumbnailImg}
           {prettyName}
           <DeleteOneFromTeamButton/>
+                <div className="teamListItem-divider"></div>
         </div>
+
       </React.Fragment>
     )
   }
