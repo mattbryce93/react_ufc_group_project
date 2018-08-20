@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import FighterBarGraph from './FighterBarGraph';
 
 class SelectedFighter extends Component{
   constructor(props){
@@ -71,6 +72,7 @@ getAge(){
 getCountry(){
   if(!this.state.selectedFighter){
     return null;
+
   }
 
   return(<p>Location: {this.state.selectedFighter.city_residing}, {this.state.selectedFighter.country_residing}</p>);
@@ -118,6 +120,7 @@ render(){
       {this.getHeight()}
       {this.getWeight()}
       {this.getAverageFightDuration()}
+      <FighterBarGraph selectedFighter={this.state.selectedFighter}/>
       <button onClick={this.props.hideSelectedPlayer}>Back to List</button>
     </React.Fragment>
   )
