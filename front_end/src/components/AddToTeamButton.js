@@ -4,7 +4,7 @@ import _ from 'lodash';
 const AddToTeamButton = (props) => {
 
   const playerTeamURL = "http://localhost:3001/api/teams";
-  const selectedFighter = props.fighter.id;
+  const selectedFighter = props.fighter;
   // const playerTeamName = "player_team";
 
   const getAllTeams = () => {
