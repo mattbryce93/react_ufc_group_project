@@ -63,7 +63,8 @@ const DeleteOneFromTeamButton = (props) => {
       <input type="submit"
         value="Remove from team"
         onClick={handleDeleteOneClick}
-        className="teamListItem-delete-one"
+        className="teamListItem-delete-one-BUTTON"
+        // styling for this in teamlistitem.css
       />
     </React.Fragment>
   )

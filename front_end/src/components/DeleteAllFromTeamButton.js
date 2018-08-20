@@ -62,6 +62,8 @@ const DeleteAllFromTeamButton = () => {
       <input type="submit"
         value="Delete All"
         onClick={handleDeleteClick}
+        className="teamList-delete-all-BUTTON"
+        // styling for this in teamlist.css
       />
     </React.Fragment>
   )

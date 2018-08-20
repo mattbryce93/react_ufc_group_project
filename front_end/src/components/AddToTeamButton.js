@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import './ListItem.css'
 
 
 const AddToTeamButton = (props) => {
@@ -68,6 +69,8 @@ const AddToTeamButton = (props) => {
       <input type="submit"
         value="Add to team"
         onClick={handleSubmitClick}
+        className="fighterTable-list-item-addToTeam-BUTTON"
+        // styling in ListItem.css
       />
     </React.Fragment>
     // First get existing team into variable

@@ -1,6 +1,7 @@
 import React from 'react';
 import TeamListItem from '../components/TeamListItem'
 import DeleteAllFromTeamButton from '../components/DeleteAllFromTeamButton'
+import './TeamList.css'
 
 const TeamList = (props) => {
 
@@ -13,11 +14,14 @@ const TeamList = (props) => {
 
     return(
       <React.Fragment>
-        <div className="team-container">
-          <p>Your chosen team:</p>
+        <div className="team-elements">
+          <div className="teamList-header">
+            <h4>Your chosen team</h4>
+          </div>
           {allTeamFighterItems}
           <DeleteAllFromTeamButton />
         </div>
+
       </React.Fragment>
     )
   }
