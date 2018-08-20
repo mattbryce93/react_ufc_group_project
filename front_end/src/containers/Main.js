@@ -40,10 +40,10 @@ render(){
       <NavBar/>
       <Title/>
       <TeamContainer/>
+      <FighterContainer selectedFighter={this.state.selectedFighter}/>
       <div className="search-container">
         <ListContainer allFighters={this.state.allFighters}/>
       </div>
-      <FighterContainer selectedFighter={this.state.selectedFighter}/>
     </React.Fragment>
   )
 
