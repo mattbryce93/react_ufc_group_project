@@ -13,7 +13,7 @@ const ListItem = (props) => {
         <td>{thumbnailImg}</td>
         <td className="fighterTable-fighter-name">{prettyName}</td>
         <td className="fighterTable-fighter-weightclass">{props.fighter.weight_class}</td>
-        <td className="fighterTable-addToTeamButton"><AddToTeamButton fighter={props.player}/></td>
+        <td className="fighterTable-addToTeamButton"><AddToTeamButton fighter={props.fighter}/></td>
       </tr>
     </React.Fragment>
 
