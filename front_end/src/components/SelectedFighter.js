@@ -122,13 +122,13 @@ render(){
       <p>Selected Fighter</p>
       {this.getImage()}
       {this.prettyName()}
-      {this.getAge()}
-      {this.getCountry()}
       {this.getWeightClass()}
       {this.getHeight()}
       {this.getWeight()}
-      {this.getAverageFightDuration()}
+      {this.getAge()}
+      {this.getCountry()}
       {this.getStrengths()}
+      {this.getAverageFightDuration()}
       <FighterBarGraph selectedFighter={this.state.selectedFighter}/>
       <button onClick={this.props.hideSelectedPlayer}>Back to List</button>
     </React.Fragment>

@@ -8,7 +8,7 @@ const ListItem = (props) => {
   return(
     <React.Fragment>
       <tr className="fighterTable-list-item" onClick={props.handleFighterSelect}>
-        {/* <td id={props.fighter.id}>{thumbnailImg}</td> */}
+        <td id={props.fighter.id}>{thumbnailImg}</td>
         <td id={props.fighter.id} className="fighterTable-fighter-name">{prettyName}</td>
         <td id={props.fighter.id} className="fighterTable-fighter-weightclass">{props.fighter.weight_class}</td>
 
