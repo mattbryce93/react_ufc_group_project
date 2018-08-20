@@ -1,5 +1,6 @@
 import React from 'react';
 import TeamItem from '../components/TeamItem'
+import DeleteAllFromTeamButton from '../components/DeleteAllFromTeamButton'
 
 const TeamList = (props) => {
 
@@ -14,6 +15,7 @@ const TeamList = (props) => {
       <ol>
         {allTeamFighterItems}
       </ol>
+      <DeleteAllFromTeamButton />
     </React.Fragment>
   )
 }
