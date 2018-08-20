@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import './ListFilter.css'
 
 class ListFilter extends Component {
 
@@ -8,26 +9,26 @@ class ListFilter extends Component {
     this.state = {
       inputString: ""
     }
-    this.handleFilterChange = this.handleFilterChange.bind(this);
-    this.callFilterCreation = this.callFilterCreation.bind(this);
+    this.handleTextSearchChange = this.handleTextSearchChange.bind(this);
+    this.callTextSearchCreation = this.callTextSearchCreation.bind(this);
     this.generateWeights = this.generateWeights.bind(this);
     this.handleWeightSelectorChange = this.handleWeightSelectorChange.bind(this);
     this.handleTitleSelection = this.handleTitleSelection.bind(this);
   }
 
 
-// handling text changes
-  handleFilterChange(event){
+  // handling text changes
+  handleTextSearchChange(event){
     event.preventDefault();
-    this.setState({inputString: event.target.value}, this.callFilterCreation);
+    this.setState({inputString: event.target.value}, this.callTextSearchCreation);
     // this.props.handleFilterCreation(this.state.inputString)
   }
 
-  callFilterCreation(){
-    this.props.handleFilterCreation(this.state.inputString)
+  callTextSearchCreation(){
+    this.props.handleSearchBoxCreation(this.state.inputString)
   }
 
-// handling weight changes
+  // handling weight changes
   handleWeightSelectorChange(event){
     // console.log(event.target.value);
     this.props.onWeightSelected(event.target.value);
@@ -38,11 +39,11 @@ class ListFilter extends Component {
     this.props.onTitleSelected(event.target.value);
   }
 
-  //generate drop down values
+  //generate weightclass drop down values
   generateWeights(){
     const allWeights = this.props.weights();
-    const weightOptions = _.map(allWeights, weight =>{
-      return <option value={weight}>{weight}</option>
+    const weightOptions = _.map(allWeights, weight => {
+      return <option value={weight} key={weight}>{weight}</option>
     })
     return weightOptions;
   }
@@ -50,25 +51,34 @@ class ListFilter extends Component {
   render() {
     return(
       <React.Fragment>
-        <form className="searchFilter">
-          <input type="text"
-            placeholder="Search for your fighter"
-            value={this.state.inputString}
-            onChange={this.handleFilterChange}/>
-            <select
-              name="weightclass-selector"
-              id="weightclass-selector"
-              onChange={this.handleWeightSelectorChange}>
-              {this.generateWeights()}
-            </select>
-            {/* //tick box */}
-            <p>All: </p>
-            <input type="radio" name="title" value={null} onChange={this.handleTitleSelection}/>
-            <p>Yes: </p>
-            <input type="radio" name="title" value={true} onChange={this.handleTitleSelection}/>
-            <p>No: </p>
-            <input type="radio" name="title" value={false} onChange={this.handleTitleSelection}/>
-          </form>
+        <div className="filter-container">
+          <form id="search-form">
+            <input className="searchbox" type="text"
+              placeholder="Search for your fighter"
+              value={this.state.inputString}
+              onChange={this.handleTextSearchChange}/>
+            </form>
+            <form id="filters-form">
+              <select
+                name="weightclass-selector"
+                id="weightclass-selector"
+                onChange={this.handleWeightSelectorChange}>
+                {this.generateWeights()}
+              </select>
+              <div className="titleHolder-radio-container">
+                Title holder?
+                <div className="radiobutton-container">
+                  <input type="radio" name="title" value={undefined} onChange={this.handleTitleSelection}/>All
+                </div>
+                <div className="radiobutton-container">
+                  <input type="radio" name="title" value={true} onChange={this.handleTitleSelection}/>Yes
+                </div>
+                <div className="radiobutton-container">
+                  <input type="radio" name="title" value={false} onChange={this.handleTitleSelection}/>No
+                </div>
+              </div>
+            </form>
+          </div>
         </React.Fragment>
       )
     }
