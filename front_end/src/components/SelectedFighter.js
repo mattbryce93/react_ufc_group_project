@@ -131,7 +131,7 @@ render(){
       {this.getStrengths()}
       {this.getAverageFightDuration()}
       <FighterBarGraph selectedFighter={this.state.selectedFighter}/>
-      <MapWrapper/>
+      <MapWrapper selectedFighter={this.state.selectedFighter}/>
       <button onClick={this.props.hideSelectedPlayer}>Back to List</button>
     </React.Fragment>
   )
