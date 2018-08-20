@@ -8,7 +8,8 @@ class MapWrapper extends Component{
   constructor(props){
     super(props);
     this.state = {
-      fights: []
+      fights: [],
+      coords: null
     }
     this.renderMap = this.renderMap.bind(this);
   }
@@ -19,11 +20,29 @@ class MapWrapper extends Component{
     }).uniqBy('Venue').value();
   }
 
+  getCoords(location){
+    const url="https://nominatim.openstreetmap.org/search?q=Mumbai&format=json"
+    return (
+      fetch(url)
+      .then(response => response.json())
+      )
+    }
+
+  renderMarkers(locations){
+    const apiResponse= _.map(locations, location => {
+      this.setState({coords: this.getCoords(location)})
+
+    })
+    debugger;
+
+  }
+
   renderMap(){
     if(!this.props.selectedFighter){
       return null;
     }
     const fights = this.listFights();
+
     const position = [51.505, -0.09];
     return(
       <Map zoom={10} center={position}>
@@ -31,6 +50,7 @@ class MapWrapper extends Component{
           url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png"
           attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
         />
+        {this.renderMarkers(fights)}
       </Map>
     )
   }
