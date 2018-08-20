@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TeamPlayer = () => (
-  <p>TeamPlayer</p>
+  <p>Team Fighter</p>
 )
 
 export default TeamPlayer;

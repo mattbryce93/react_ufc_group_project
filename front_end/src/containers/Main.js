@@ -10,7 +10,8 @@ class Main extends Component{
   constructor(props){
     super(props);
     this.state = {
-      allFighters: []
+      allFighters: [],
+      teamFighters: []
     }
     this.apiCall = this.apiCall.bind(this);
   }
@@ -37,7 +38,7 @@ render(){
     <React.Fragment>
       <NavBar/>
       <Title/>
-      <TeamContainer/>
+      <TeamContainer allTeamFighters={this.state.teamFighters}/>
       <div className="search-container">
         {/* <p>Main</p> */}
         <ListContainer allFighters={this.state.allFighters}/>
