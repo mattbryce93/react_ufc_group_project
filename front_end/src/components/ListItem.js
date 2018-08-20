@@ -1,13 +1,20 @@
 import React from 'react';
 import AddToTeamButton from './AddToTeamButton'
+import "./ListItem.css";
 
 const ListItem = (props) => {
-  const prettyName = props.player.first_name + " " + props.player.last_name;
+  const prettyName = props.fighter.first_name + " " + props.fighter.last_name;
+  const thumbnailImg = <img className="fighterTable-fighter-thumbnail" src={props.fighter.profile_image} alt={prettyName}/>;
+
 
   return(
     <React.Fragment>
-      <p>{prettyName} {props.player.weight_class}</p>
-      <AddToTeamButton fighter={props.player}/>
+      <tr className="fighterTable-list-item">
+        <td>{thumbnailImg}</td>
+        <td className="fighterTable-fighter-name">{prettyName}</td>
+        <td className="fighterTable-fighter-weightclass">{props.fighter.weight_class}</td>
+        <td className="fighterTable-addToTeamButton"><AddToTeamButton fighter={props.player}/></td>
+      </tr>
     </React.Fragment>
 
   )
