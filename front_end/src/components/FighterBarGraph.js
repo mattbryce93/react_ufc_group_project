@@ -40,9 +40,9 @@ class FighterBarGraph extends Component{
     }
     const win_data=[
           ['Win Type', 'Total'],
-          ['Decision Wins',     this.props.selectedFighter.decision_wins],
-          ['Technical Knock Out Wins', this.props.selectedFighter.ko_tko_wins],
-          ['Submission Wins',  this.props.selectedFighter.submission_wins]
+          ['Decisions Wins',     this.props.selectedFighter.decision_wins],
+          ['Technical Knock Outs', this.props.selectedFighter.ko_tko_wins],
+          ['Submissions',  this.props.selectedFighter.submission_wins]
         ]
 
     const win_options={
@@ -52,19 +52,19 @@ class FighterBarGraph extends Component{
 
     const strike_data=[
       ['Strikes Ratio', 'Total'],
-      ['Strikes Landed', this.props.selectedFighter.SLpM],
-      ['Strikes Absorbed', this.props.selectedFighter.SApM],
+      ['Landed', this.props.selectedFighter.SLpM],
+      ['Absorbed', this.props.selectedFighter.SApM],
     ]
 
     const strike_options={
-      title: 'Strikes',
+      title: 'Strikes Landed vs Strikes Absorbed',
       pieSliceText: 'label'
     }
 
     const striking_data=[
       ['Striking Defence vs Striking Accuracy', 'Total'],
-      ['Striking Accuracy', this.props.selectedFighter.StrikingAccuracy],
-      ['Striking Defense', this.props.selectedFighter.StrikingDefense]
+      ['Accuracy', this.props.selectedFighter.StrikingAccuracy],
+      ['Defense', this.props.selectedFighter.StrikingDefense]
     ]
 
     const striking_options={
@@ -74,8 +74,8 @@ class FighterBarGraph extends Component{
 
     const takedown_data=[
       ['Takedown Defence vs Takedown Accuracy', 'Total'],
-      ['Takedown Accuracy', this.props.selectedFighter.TakedownAccuracy],
-      ['Takedown Defense', this.props.selectedFighter.TakedownDefense]
+      ['Accuracy', this.props.selectedFighter.TakedownAccuracy],
+      ['Defense', this.props.selectedFighter.TakedownDefense]
     ]
 
     const takedown_options={
