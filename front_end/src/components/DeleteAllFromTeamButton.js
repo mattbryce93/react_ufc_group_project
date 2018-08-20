@@ -55,14 +55,7 @@ const DeleteAllFromTeamButton = () => {
     })
   }
 
-  const getTeam = (url) => {
-    return fetch(url)
-    .then(response => response.json())
-    .then(response => {
-      _.filter(response, {'player_team': true})
-    })
-    .then(response => console.log(response));
-  }
+
 
   return(
     <React.Fragment>
