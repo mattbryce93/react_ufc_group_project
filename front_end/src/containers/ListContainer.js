@@ -68,9 +68,6 @@ class ListContainer extends Component{
     this.setState({filteredFighters});
   }
 
-
-
-
   //generating weight classes
 
   getWeightClasses(){

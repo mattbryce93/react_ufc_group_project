@@ -4,7 +4,6 @@ import Title from '../components/Title'
 import NavBar from '../components/NavBar'
 import TeamContainer from './TeamContainer';
 import FighterContainer from './FighterContainer';
-import AddToTeamButton from '../components/AddToTeamButton';
 import "./Main.css"
 
 
@@ -69,9 +68,7 @@ hideListContainer(){
 }
 
 handleAddToTeamButton(){
-  return (
-    <AddToTeamButton/>
-  )
+  // componentDidMount()
 }
 
 
@@ -80,7 +77,7 @@ render(){
     <React.Fragment>
       <NavBar/>
       <Title/>
-      <TeamContainer allTeamFighters={this.state.teamFighters} selectedFighter={this.state.selectedFighter}/>
+      <TeamContainer allTeamFighters={this.state.teamFighters} selectedFighter={this.state.selectedFighter} teamClicky = {this.handleAddToTeamButton}/>
       {this.hideListContainer()}
     </React.Fragment>
   )
