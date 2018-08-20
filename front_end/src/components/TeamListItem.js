@@ -16,7 +16,7 @@ const TeamListItem = (props) => {
         <div className="teamListItem">
           {thumbnailImg}
           {prettyName}
-          <DeleteOneFromTeamButton/>
+          <DeleteOneFromTeamButton id={props.fighter.id}/>
                 <div className="teamListItem-divider"></div>
         </div>
 
