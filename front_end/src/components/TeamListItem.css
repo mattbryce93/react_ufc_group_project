@@ -17,3 +17,12 @@
   width: 140%;
   background:rgb(74, 189, 172);
 }
+
+@media only screen and (max-width: 1245px) {
+  .teamListItem-divider {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background:rgb(74, 189, 172, 0.0);
+  }
+
+}

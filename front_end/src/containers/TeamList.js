@@ -15,7 +15,9 @@ const TeamList = (props) => {
     return(
       <React.Fragment>
         <div className="team-elements">
-          <h4>Your chosen team</h4>
+          <div className="teamList-header">
+            <h4>Your chosen team</h4>
+          </div>
           {allTeamFighterItems}
           <DeleteAllFromTeamButton />
         </div>

@@ -13,11 +13,26 @@
   padding-bottom: 15px;
   padding-left: 5px;
   padding-right: 5px;
-
-
 }
 
-.team-container h4 {
-  margin-top: 10px;
-  margin-bottom: 10px;
+@media only screen and (max-width: 1245px) {
+  .team-container {
+    left: 50%;
+    width: auto;
+    transform: translate(-50%, 0);
+    top: 0px; /* Stay at the top */
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* .team-container h4 {
+    margin-top: -10px;
+    margin-bottom: -10px;
+    -webkit-transform: rotate(-90deg);
+  } */
+
+
 }
