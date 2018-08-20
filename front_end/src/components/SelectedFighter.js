@@ -16,6 +16,7 @@ class SelectedFighter extends Component{
     this.getWeight = this.getWeight.bind(this);
     this.getImage = this.getImage.bind(this);
     this.getAverageFightDuration = this.getAverageFightDuration.bind(this);
+    this.getStrengths = this.getStrengths.bind(this);
   }
 
   fetchFighterObject(){
@@ -106,6 +107,13 @@ getAverageFightDuration(){
   return(<p>Average Fight Duration: {this.state.selectedFighter.AverageFightTime} Minutes</p>)
 }
 
+getStrengths(){
+  if(!this.state.selectedFighter){
+    return null;
+  }
+  return(<p>Strengths: {this.state.selectedFighter.strengths}</p>)
+}
+
 
 
 render(){
@@ -120,6 +128,7 @@ render(){
       {this.getHeight()}
       {this.getWeight()}
       {this.getAverageFightDuration()}
+      {this.getStrengths()}
       <FighterBarGraph selectedFighter={this.state.selectedFighter}/>
       <button onClick={this.props.hideSelectedPlayer}>Back to List</button>
     </React.Fragment>
