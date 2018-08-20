@@ -12,6 +12,7 @@ const DeleteOneFromTeamButton = () => {
         value="Remove from team"
         onClick={handleDeleteOneClick}
         className="teamListItem-delete-one"
+        // styling for this in teamlistitem.css
       />
     </React.Fragment>
   )

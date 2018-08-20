@@ -2,7 +2,7 @@
   width: 160px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
-  top: 200px; /* Stay at the top */
+  top: 100px; /* Stay at the top */
   left: 0px;
   /* background-color: rgb(74, 189, 172, 0.7); */
   background-color: white;
