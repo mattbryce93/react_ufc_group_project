@@ -12,22 +12,25 @@ const TeamList = (props) => {
       key={index}
       handleDeleteOneButton = {props.handleDeleteOneButton}
     />
-    })
+  })
 
-    return(
-      <React.Fragment>
-        <div className="team-elements">
-          <div className="teamList-header">
-            <h4>Your chosen team</h4>
+  return(
+    <React.Fragment>
+      <div className="team-elements">
+        <div className="teamList-header">
+          <h4>Your team</h4>
+          <div className="teamList-ptsContainer">
+            {`${props.teamScore} pts`}
           </div>
-          {allTeamFighterItems}
-          <DeleteAllFromTeamButton
-            handleDeleteAllButton={props.handleDeleteAllButton}
-           />
         </div>
+        {allTeamFighterItems}
+        <DeleteAllFromTeamButton
+          handleDeleteAllButton={props.handleDeleteAllButton}
+        />
+      </div>
 
-      </React.Fragment>
-    )
-  }
+    </React.Fragment>
+  )
+}
 
-  export default TeamList;
+export default TeamList;

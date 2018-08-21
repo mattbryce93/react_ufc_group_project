@@ -13,8 +13,8 @@ const TeamContainer = (props) => {
           allTeamFighters={props.allTeamFighters}
           handleDeleteAllButton={props.handleDeleteAllButton}
           handleDeleteOneButton={props.handleDeleteOneButton}
+          teamScore={props.teamScore}
         />
-        {props.teamScore}
       </div>
     </React.Fragment>
   )
