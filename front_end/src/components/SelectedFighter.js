@@ -86,7 +86,7 @@ getWeightClass(){
   if(!this.state.selectedFighter){
     return null;
   }
-  return(<p>Weight Class: {this.state.selectedFighter.weight_class}</p>)
+  return(<p>Weight Class: {this.state.selectedFighter.weight_class.split("_").join(" ")}</p>)
 }
 
 getHeight(){
