@@ -1,7 +1,23 @@
+body{
+  background-color: black;
+}
+
 .search-container {
   margin-top: 140px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.title-container{
+  display: flex;
+  height: 200px;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.search-container {
+  color: red;
 }
