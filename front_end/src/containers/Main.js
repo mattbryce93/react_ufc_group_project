@@ -30,10 +30,6 @@ class Main extends Component{
     this.playerTeamAPICall();
   }
 
-
-
-  //write function to change selectedFighter to the id
-
   handleFighterSelect(event){
     this.setState({selectedFighter: event.target.id})
   }
@@ -47,7 +43,6 @@ class Main extends Component{
   apiCall() {
     fetch('http://localhost:3001/api/fighters')
     .then(response => response.json())
-    // .then(
     .then(fighters => this.setState({
       allFighters: fighters
       .filter(fighter => fighter.fighter_status === 'Active'
