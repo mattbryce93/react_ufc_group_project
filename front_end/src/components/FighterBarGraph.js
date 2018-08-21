@@ -19,15 +19,15 @@ class FighterBarGraph extends Component{
       ]
 
       const options={
-    title: 'Fighter Stats',
-    hAxis: { title: 'Total'},
-    legend: 'none',
-    animation: {
-      startup: true,
-      easing: 'out',
-      duration: 1500,
+        title: 'Fighter Stats',
+        hAxis: { title: 'Total'},
+        legend: 'none',
+        animation: {
+          startup: true,
+          easing: 'out',
+          duration: 1500,
+      }
     }
-  }
 
     return (
       <Chart chartType="BarChart" width="100%" height="400px" data={data} options={options}/>

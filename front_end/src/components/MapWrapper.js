@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
+import MapMarker from './MapMarker'
 import './MapWrapper.css'
 import _ from 'lodash';
 
@@ -8,56 +9,44 @@ class MapWrapper extends Component{
   constructor(props){
     super(props);
     this.state = {
-      fights: [],
-      coords: null
+      locations: [],
+      coords: []
     }
-    this.renderMap = this.renderMap.bind(this);
   }
 
-  listFights(){
-    return _.chain(this.props.selectedFighter.fights).map(fight => {
-      return fight.Event.Location
-    }).uniqBy('Venue').value();
-  }
-
-  getCoords(location){
-    const url="https://nominatim.openstreetmap.org/search?q=Mumbai&format=json"
-    return (
-      fetch(url)
-      .then(response => response.json())
-      )
-    }
-
-  renderMarkers(locations){
-    const apiResponse= _.map(locations, location => {
-      this.setState({coords: this.getCoords(location)})
-
-    })
-    debugger;
-
-  }
-
-  renderMap(){
+  componentDidUpdate(prevProps, prevState, snapshot){
     if(!this.props.selectedFighter){
       return null;
     }
-    const fights = this.listFights();
+    let locations =[]
+    let venues = (_.chain(this.props.selectedFighter.fights).map(fight => {
+      return fight.Event.Location
+    }).uniqBy('Venue').value());
+    locations.push(venues)
+    this.setState({locations});
+  }
 
+  // getCoords(){
+  //   const url="https://nominatim.openstreetmap.org/search?q=Mumbai&format=json"
+  //   debugger;
+  //   fetch(url)
+  //   .then(response => response.json())
+  //   .then(data => this.setState({coords: data}))
+  //   }
+
+  render(){
+    if(!this.props.selectedFighter){
+      return null;
+    }
     const position = [51.505, -0.09];
     return(
-      <Map zoom={10} center={position}>
-        <TileLayer
-          url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png"
-          attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-        />
-        {this.renderMarkers(fights)}
-      </Map>
-    )
-  }
-  render(){
-    return(
       <React.Fragment>
-        {this.renderMap()}
+        <Map zoom={10} center={position}>
+          <TileLayer
+            url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png"
+            attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+          />
+        </Map>
       </React.Fragment>
     )
   }
