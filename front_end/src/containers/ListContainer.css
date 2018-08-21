@@ -1,10 +1,12 @@
 .list-container h4 {
-  font-size: 48px;
+  /* font-size: 48px; */
 }
 
 .list-container {
   padding: 20px;
-  background-color: rgb(254, 252, 245);
-  border:
-  rgb(43, 45, 66)
+  background-color: rgb(254, 254, 254);
+  /* border-style: solid;
+  border-width: 1px;
+  border-color: rgb(43, 45, 66); */
+
 }

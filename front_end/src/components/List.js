@@ -21,7 +21,7 @@ const List = (props) => {
             <tr className="fighterTable-header">
               {/* First th is blank as this is the thumbnail image column */}
               <th></th>
-              <th>Name</th>
+              <th></th>
               <th>Weight class</th>
               <th>W</th>
               <th>L</th>

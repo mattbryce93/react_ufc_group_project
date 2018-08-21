@@ -11,4 +11,7 @@
 
 .fighterTable-header th {
   padding-bottom: 10px;
+  font-weight: normal;
+  font-size: 14px;
+  color: rgb(141, 153, 174);
 }

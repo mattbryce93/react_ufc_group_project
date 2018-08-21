@@ -4,7 +4,9 @@ body{
   /* -webkit-animation: AnimationName 30s ease infinite;
 -moz-animation: AnimationName 30s ease infinite;
 animation: AnimationName 30s ease infinite; */
-
+/* font-family: 'Rubik', sans-serif; */
+font-family: 'Archivo', sans-serif;
+/* font-family: 'Archivo Black', sans-serif; */
 background-color: #EDF2F4;
 
 }
