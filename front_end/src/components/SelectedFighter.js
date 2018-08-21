@@ -1,6 +1,8 @@
-import React, {Component} from 'react';
-import FighterBarGraph from './FighterBarGraph';
-import MapWrapper from './MapWrapper';
+import React, {Component} from 'react'
+import FighterBarGraph from './FighterBarGraph'
+import MapWrapper from './MapWrapper'
+import './SelectedFighter.css'
+
 
 class SelectedFighter extends Component{
   constructor(props){
@@ -147,13 +149,16 @@ render(){
           {this.getAverageFightDuration()}
         </div>
       </div>
+      <div className="buttonContainer">
+      <button className="backToListBtn" onClick={this.props.hideSelectedPlayer}>Back to List</button>
+    </div>
       <div className="fighterBarChart">
         {this.getGraphs()}
       </div>
       <div className="map">
         {this.getMap()}
       </div>
-      <button onClick={this.props.hideSelectedPlayer}>Back to List</button>
+
     </React.Fragment>
   )
 }
