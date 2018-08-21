@@ -19,7 +19,7 @@ class ListItem extends Component{
   handleFilteringAddToTeamButton(){
      // let fighterFoundInTeam = false;
      let fighterFound = false;
-     
+
 
      _.forEach(this.currentTeam, function(teamFighter) {
        if (teamFighter.id === this.fighterID)
@@ -74,7 +74,9 @@ class ListItem extends Component{
             <td id={this.props.fighter.id}>{thumbnailImg}</td>
             <td id={this.props.fighter.id} className="fighterTable-fighter-name">{prettyName}</td>
             <td id={this.props.fighter.id} className="fighterTable-fighter-weightclass">{this.prettyWeight()}</td>
-            <td id={this.props.fighter.id} className="fighterTable-fighter-WLD">{this.props.fighter.wins}/{this.props.fighter.losses}/{this.props.fighter.draws}</td>
+            <td id={this.props.fighter.id} className="fighterTable-fighter-W">{this.props.fighter.wins}</td>
+            <td id={this.props.fighter.id} className="fighterTable-fighter-L">{this.props.fighter.losses}</td>
+            <td id={this.props.fighter.id} className="fighterTable-fighter-D">{this.props.fighter.draws}</td>
 
             <td className="fighterTable-addToTeamButton">
               <AddToTeamButton

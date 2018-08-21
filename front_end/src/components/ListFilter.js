@@ -57,7 +57,7 @@ class ListFilter extends Component {
         <div className="filter-container">
           <form id="search-form">
             <input className="searchbox" type="text"
-              placeholder="Search for your fighter"
+              placeholder="Search and build your team"
               value={this.state.inputString}
               onChange={this.handleTextSearchChange}/>
             </form>

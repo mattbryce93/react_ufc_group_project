@@ -23,7 +23,9 @@ const List = (props) => {
               <th></th>
               <th>Name</th>
               <th>Weight class</th>
-              <th>W/L/D</th>
+              <th>W</th>
+              <th>L</th>
+              <th>D</th>
             </tr>
             {allListItems}
           </tbody>

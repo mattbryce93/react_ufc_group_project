@@ -8,9 +8,23 @@
   width: 100%;
   font-size: 48px;
   font-weight: bold;
-  color: black;
+  color: rgb(33, 33, 33);
+  /* background-color: rgb(255,105,97); */
+  /* border: none; */
 }
 
+.searchbox::-moz-placeholder{
+    color: rgb(145, 145, 145);
+    opacity:1
+}
+
+.searchbox:-ms-input-placeholder{
+    color: rgb(145, 145, 145);
+}
+
+.searchbox::-webkit-input-placeholder{
+    color: rgb(145, 145, 145);
+}
 #filters-form {
   display: flex;
 }
