@@ -121,7 +121,10 @@ render(){
   return(
     <React.Fragment>
       <p>Selected Fighter</p>
+      <div className="selectedFighterImage">
       {this.getImage()}
+    </div>
+    <div className="selectedFighterDetails">
       {this.prettyName()}
       {this.getWeightClass()}
       {this.getHeight()}
@@ -130,8 +133,13 @@ render(){
       {this.getCountry()}
       {this.getStrengths()}
       {this.getAverageFightDuration()}
+    </div>
+    <div className="fighterBarChart">
       <FighterBarGraph selectedFighter={this.state.selectedFighter}/>
+    </div>
+    <div className="map">
       <MapWrapper selectedFighter={this.state.selectedFighter}/>
+    </div>
       <button onClick={this.props.hideSelectedPlayer}>Back to List</button>
     </React.Fragment>
   )

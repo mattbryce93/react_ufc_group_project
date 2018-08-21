@@ -1,0 +1,27 @@
+.fighter-container {
+
+}
+
+.selectedFighterImage {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectedFighterDetails {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.fighterBarChart {
+
+}
+
+.map {
+
+}
