@@ -9,7 +9,6 @@ class FighterContainer extends Component{
     }
     return(
       <React.Fragment>
-
         <div className="fighter-container">
         <SelectedFighter selectedFighter={this.props.selectedFighter} hideSelectedPlayer={this.props.hideSelectedPlayer}/>
       </div>
