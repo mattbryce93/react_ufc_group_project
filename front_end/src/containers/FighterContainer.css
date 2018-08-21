@@ -1,3 +1,24 @@
 .fighter-container {
+  margin-left: 160px;
+}
 
+@media only screen and (max-width: 1245px) {
+  .fighter-container {
+    margin-left: 0px;
+  }
+}
+
+.fighterBarChart {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pieChart {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.barChart{
+  width: 50%;
 }
