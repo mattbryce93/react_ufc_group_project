@@ -34,15 +34,16 @@ class MapWrapper extends Component{
       .then(response => response.json())
       .then(data => this.setState({current_coords: data}, this.insertCoords))
     })
-    console.log(this.state);
   }
 
   insertCoords(){
     let coords = this.state.coords;
     let current_coords = this.state.current_coords;
-    coords.push(current_coords);
+    coords.push(current_coords[0]);
     this.setState({coords});
   }
+
+
 
   render(){
     if(!this.props.selectedFighter){
@@ -51,11 +52,12 @@ class MapWrapper extends Component{
     const position = [51.505, -0.09];
     return(
       <React.Fragment>
-        <Map zoom={10} center={position}>
+        <Map zoom={1.5} center={position}>
           <TileLayer
             url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png"
             attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           />
+          <MapMarker coords={this.state.coords}/>
         </Map>
       </React.Fragment>
     )
