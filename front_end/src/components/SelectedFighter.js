@@ -120,20 +120,21 @@ getStrengths(){
 render(){
   return(
     <React.Fragment>
-      <p>Selected Fighter</p>
-      <div className="selectedFighterImage">
-      {this.getImage()}
-    </div>
-    <div className="selectedFighterDetails">
-      {this.prettyName()}
-      {this.getWeightClass()}
-      {this.getHeight()}
-      {this.getWeight()}
-      {this.getAge()}
-      {this.getCountry()}
-      {this.getStrengths()}
-      {this.getAverageFightDuration()}
-    </div>
+      <div className="imageAndDetails">
+        <div className="selectedFighterImage">
+          {this.getImage()}
+        </div>
+        <div className="selectedFighterDetails">
+          {this.prettyName()}
+          {this.getWeightClass()}
+          {this.getHeight()}
+          {this.getWeight()}
+          {this.getAge()}
+          {this.getCountry()}
+          {this.getStrengths()}
+          {this.getAverageFightDuration()}
+        </div>
+      </div>
     <div className="fighterBarChart">
       <FighterBarGraph selectedFighter={this.state.selectedFighter}/>
     </div>

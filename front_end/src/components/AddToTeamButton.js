@@ -66,12 +66,14 @@ const AddToTeamButton = (props) => {
 
   return(
     <React.Fragment>
+      <div className="teamButton">
       <input type="submit"
         value="Add to team"
         onClick={handleSubmitClick}
         className="fighterTable-list-item-addToTeam-BUTTON"
         // styling in ListItem.css
       />
+    </div>
     </React.Fragment>
     // First get existing team into variable
     // Concat player.id to existing team variable
