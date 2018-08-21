@@ -15,30 +15,24 @@ class ListItem extends Component{
 
   handleFilteringAddToTeamButton(){
 
-    const fighterFoundInTeam = false;
+     // let fighterFoundInTeam = false;
+     let fighterFound = false;
 
-    _.forEach(this.currentTeam, function(teamFighter) {
+     _.forEach(this.currentTeam, function(teamFighter) {
 
-      if (teamFighter.id === this.fighterID)
-      {
-        let fighterFound = true;
-        console.log("if true: " + fighterFound);
-        return fighterFound;
-      } else {
-        let fighterFound = false;
-        console.log("if false: " + fighterFound);
-      }
+       if (teamFighter.id === this.fighterID)
+       {
+         fighterFound = true;
+         // console.log(`${this.fighterID} is present`);
+         return ;
+       }
 
-    }.bind(this))
+     }.bind(this))
 
-    console.log(fighterFoundInTeam);
-    return;
-  }
+     console.log(fighterFound);
+     return fighterFound;
+   }
 
-  // componentDidMount(){
-  //   // this.getAllTeams();
-  //   // this.displayAddToTeamButton();
-  // }
 
   render(){
 
@@ -48,23 +42,23 @@ class ListItem extends Component{
       src={this.props.fighter.profile_image}
       alt={prettyName}/>;
 
-    return(
-      <React.Fragment>
-        <tr className="fighterTable-list-item" onClick={this.props.handleFighterSelect}>
-          <td id={this.props.fighter.id}>{thumbnailImg}</td>
-          <td id={this.props.fighter.id} className="fighterTable-fighter-name">{prettyName}</td>
-          <td id={this.props.fighter.id} className="fighterTable-fighter-weightclass">{this.props.fighter.weight_class}</td>
+      return(
+        <React.Fragment>
+          <tr className="fighterTable-list-item" onClick={this.props.handleFighterSelect}>
+            <td id={this.props.fighter.id}>{thumbnailImg}</td>
+            <td id={this.props.fighter.id} className="fighterTable-fighter-name">{prettyName}</td>
+            <td id={this.props.fighter.id} className="fighterTable-fighter-weightclass">{this.props.fighter.weight_class}</td>
 
-          <td className="fighterTable-addToTeamButton">
-            <AddToTeamButton
-              handleFilteringAddToTeamButton={this.handleFilteringAddToTeamButton}
-              fighter={this.props.fighter}
-              handleAddToTeamButton={this.props.handleAddToTeamButton}/>
-            </td>
-          </tr>
-        </React.Fragment>
-      )
+            <td className="fighterTable-addToTeamButton">
+              <AddToTeamButton
+                handleFilteringAddToTeamButton={this.handleFilteringAddToTeamButton}
+                fighter={this.props.fighter}
+                handleAddToTeamButton={this.props.handleAddToTeamButton}/>
+              </td>
+            </tr>
+          </React.Fragment>
+        )
+      }
     }
-  }
 
-  export default ListItem;
+    export default ListItem;
