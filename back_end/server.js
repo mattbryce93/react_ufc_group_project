@@ -38,6 +38,14 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
     })
   })
 
+  server.get('/api/coords/:location', function(req, res){
+    fetch(`https://nominatim.openstreetmap.org/search?q=${req.params.location}&limit=1&format=json`)
+    .then(res => res.json())
+    .then(data => {
+      res.json(data)
+    })
+  })
+
   //Delete all teams
   server.delete('/api/teams', function(req, res){
     const filterObject = {};
