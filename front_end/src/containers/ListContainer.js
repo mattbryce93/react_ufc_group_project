@@ -80,12 +80,14 @@ class ListContainer extends Component{
 
   render(){
     let generatedList = <List
+      currentTeam={this.props.currentTeam}
       listedFighters={this.props.allFighters}
       handleFighterSelect={this.props.handleFighterSelect}
       handleAddToTeamButton={this.props.handleAddToTeamButton}
     />;
     if(this.state.filteredFighters){
       generatedList = <List
+        currentTeam={this.props.currentTeam}
         listedFighters={this.state.filteredFighters}
         handleFighterSelect={this.props.handleFighterSelect}
         handleAddToTeamButton={this.props.handleAddToTeamButton}

@@ -68,7 +68,8 @@ hideListContainer(){
         <ListContainer
           allFighters={this.state.allFighters}
           handleFighterSelect={this.handleFighterSelect}
-          handleAddToTeamButton={this.handleAddToTeamButton}/>
+          handleAddToTeamButton={this.handleAddToTeamButton}
+          currentTeam={this.state.teamFighters}/>
         </div>
       )
     }

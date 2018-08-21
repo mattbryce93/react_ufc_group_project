@@ -9,6 +9,7 @@ const List = (props) => {
 
   const allListItems = props.listedFighters.map((fighter, index) => {
     return <ListItem fighter={fighter} index={index} key={index}
+      currentTeam={props.currentTeam}
       handleFighterSelect={props.handleFighterSelect}
       handleAddToTeamButton={props.handleAddToTeamButton}/>
     })
