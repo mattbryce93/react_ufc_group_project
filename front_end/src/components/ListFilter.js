@@ -43,7 +43,10 @@ class ListFilter extends Component {
   generateWeights(){
     const allWeights = this.props.weights();
     const weightOptions = _.map(allWeights, weight => {
-      return <option value={weight} key={weight}>{weight}</option>
+      if(!weight){
+        return null;
+      }
+      return <option value={weight} key={weight}>{weight.split('_').join(' ')}</option>
     })
     return weightOptions;
   }
