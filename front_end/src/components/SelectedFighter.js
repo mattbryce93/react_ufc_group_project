@@ -1,6 +1,8 @@
-import React, {Component} from 'react';
-import FighterBarGraph from './FighterBarGraph';
-import MapWrapper from './MapWrapper';
+import React, {Component} from 'react'
+import FighterBarGraph from './FighterBarGraph'
+import MapWrapper from './MapWrapper'
+import './SelectedFighter.css'
+
 
 class SelectedFighter extends Component{
   constructor(props){
@@ -84,7 +86,7 @@ getWeightClass(){
   if(!this.state.selectedFighter){
     return null;
   }
-  return(<p>Weight Class: {this.state.selectedFighter.weight_class}</p>)
+  return(<p>Weight Class: {this.state.selectedFighter.weight_class.split("_").join(" ")}</p>)
 }
 
 getHeight(){
@@ -132,19 +134,31 @@ getGraphs(){
 render(){
   return(
     <React.Fragment>
-      <p>Selected Fighter</p>
-      {this.getImage()}
-      {this.prettyName()}
-      {this.getWeightClass()}
-      {this.getHeight()}
-      {this.getWeight()}
-      {this.getAge()}
-      {this.getCountry()}
-      {this.getStrengths()}
-      {this.getAverageFightDuration()}
-      {this.getGraphs()}
-      {this.getMap()}
-      <button onClick={this.props.hideSelectedPlayer}>Back to List</button>
+      <div className="imageAndDetails">
+        <div className="selectedFighterImage">
+          {this.getImage()}
+        </div>
+        <div className="selectedFighterDetails">
+          {this.prettyName()}
+          {this.getWeightClass()}
+          {this.getHeight()}
+          {this.getWeight()}
+          {this.getAge()}
+          {this.getCountry()}
+          {this.getStrengths()}
+          {this.getAverageFightDuration()}
+        </div>
+      </div>
+      <div className="buttonContainer">
+      <button className="backToListBtn" onClick={this.props.hideSelectedPlayer}>Back to List</button>
+    </div>
+      <div className="fighterBarChart">
+        {this.getGraphs()}
+      </div>
+      <div className="map">
+        {this.getMap()}
+      </div>
+
     </React.Fragment>
   )
 }

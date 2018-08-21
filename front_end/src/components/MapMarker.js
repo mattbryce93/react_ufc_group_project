@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
-import _ from 'lodash';
+import React from 'react';
+import { Marker, Popup } from 'react-leaflet';
 
 const MapMarker = (props) => {
   if(!props.coords){

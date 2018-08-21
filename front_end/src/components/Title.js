@@ -1,10 +1,8 @@
-// Title
-import React
-from 'react';
+import React from 'react';
 
 const Title = () => (
   <div className="title-container">
-    <h1>FanUFC</h1>
+    <img src="images/ufc9.jpg"/>
   </div>
 )
 export default Title;

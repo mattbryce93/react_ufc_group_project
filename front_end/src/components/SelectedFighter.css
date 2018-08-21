@@ -1,0 +1,33 @@
+.selectedFighterImage {
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ justify-content: center;
+ align-items: center;
+}
+
+.selectedFighterDetails {
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ justify-content: center;
+}
+
+.imageAndDetails {
+ display: flex;
+ justify-content:flex-start;
+ justify-content: center;
+}
+
+.imageAndDetails {
+ color: red;
+}
+
+.backToListBtn {
+  background-color: red;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}

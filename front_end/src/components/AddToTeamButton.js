@@ -7,7 +7,6 @@ const AddToTeamButton = (props) => {
 
   const playerTeamURL = "http://localhost:3001/api/teams";
   const selectedFighter = props.fighter;
-  // const isPlayerInTeam = props.handleFilteringAddToTeamButton;
   // const playerTeamName = "player_team";
 
   const getAllTeams = () => {

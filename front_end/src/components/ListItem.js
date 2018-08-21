@@ -11,7 +11,7 @@ class ListItem extends Component{
     }
 
     this.handleFilteringAddToTeamButton = this.handleFilteringAddToTeamButton.bind(this);
-
+    this.prettyWeight = this.prettyWeight.bind(this);
     this.currentTeam = props.currentTeam;
     this.fighterID = props.fighter.id;
   }
@@ -52,6 +52,14 @@ class ListItem extends Component{
      //   console.log(isPlayerInTeam);
      // }
 
+  prettyWeight(){
+    if(!this.props.fighter.weight_class){
+      return null;
+    }
+    let prettyWeight = this.props.fighter.weight_class.split('_');
+    return prettyWeight.join(' ');
+  }
+
   render(){
 
     const prettyName = this.props.fighter.first_name + " " + this.props.fighter.last_name;
@@ -65,7 +73,8 @@ class ListItem extends Component{
           <tr className="fighterTable-list-item" onClick={this.props.handleFighterSelect}>
             <td id={this.props.fighter.id}>{thumbnailImg}</td>
             <td id={this.props.fighter.id} className="fighterTable-fighter-name">{prettyName}</td>
-            <td id={this.props.fighter.id} className="fighterTable-fighter-weightclass">{this.props.fighter.weight_class}</td>
+            <td id={this.props.fighter.id} className="fighterTable-fighter-weightclass">{this.prettyWeight()}</td>
+            <td id={this.props.fighter.id} className="fighterTable-fighter-WLD">{this.props.fighter.wins}/{this.props.fighter.losses}/{this.props.fighter.draws}</td>
 
             <td className="fighterTable-addToTeamButton">
               <AddToTeamButton

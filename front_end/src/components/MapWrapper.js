@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
-import { OpenStreetMapProvider } from 'leaflet-geosearch';
+import { Map, TileLayer } from 'react-leaflet';
 import MapMarker from './MapMarker'
 import './MapWrapper.css'
 import _ from 'lodash';
@@ -28,7 +27,7 @@ class MapWrapper extends Component{
   }
 
   getCoords(){
-    let coords = _.map(this.state.locations, location => {
+    _.forEach(this.state.locations, location => {
       const url="http://localhost:3001/api/coords/" + location.City;
       fetch(url)
       .then(response => response.json())
@@ -49,9 +48,10 @@ class MapWrapper extends Component{
     if(!this.props.selectedFighter){
       return null;
     }
-    const position = [51.505, -0.09];
+    const position = [25, 15];
     return(
       <React.Fragment>
+        <p>Locations of past Fights</p>
         <Map zoom={1.5} center={position}>
           <TileLayer
             url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png"
