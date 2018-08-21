@@ -9,8 +9,6 @@ class FighterContainer extends Component{
     }
     return(
       <React.Fragment>
-
-        <p>FighterContainer</p>
         <div className="fighter-container">
         <SelectedFighter selectedFighter={this.props.selectedFighter} hideSelectedPlayer={this.props.hideSelectedPlayer}/>
       </div>
