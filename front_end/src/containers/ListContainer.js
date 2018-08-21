@@ -68,9 +68,6 @@ class ListContainer extends Component{
     this.setState({filteredFighters});
   }
 
-
-
-
   //generating weight classes
 
   getWeightClasses(){
@@ -82,20 +79,28 @@ class ListContainer extends Component{
   }
 
   render(){
-    let generatedList = <List listedFighters={this.props.allFighters} handleFighterSelect={this.props.handleFighterSelect}/>;
+    let generatedList = <List
+      listedFighters={this.props.allFighters}
+      handleFighterSelect={this.props.handleFighterSelect}
+      handleAddToTeamButton={this.props.handleAddToTeamButton}
+    />;
     if(this.state.filteredFighters){
-      generatedList = <List listedFighters={this.state.filteredFighters} handleFighterSelect={this.props.handleFighterSelect}/>;
+      generatedList = <List
+        listedFighters={this.state.filteredFighters}
+        handleFighterSelect={this.props.handleFighterSelect}
+        handleAddToTeamButton={this.props.handleAddToTeamButton}
+      />;
     }
     return(
       <React.Fragment>
         <div className="list-container">
-            <ListFilter
-              handleSearchBoxCreation={this.handleSearchBoxFilter}
-              weights={this.getWeightClasses}
-              onWeightSelected={this.handleWeightClassFilter}
-              onTitleSelected={this.handleTitleFilter}/>
-              {generatedList}
-            </div>
+          <ListFilter
+            handleSearchBoxCreation={this.handleSearchBoxFilter}
+            weights={this.getWeightClasses}
+            onWeightSelected={this.handleWeightClassFilter}
+            onTitleSelected={this.handleTitleFilter}/>
+            {generatedList}
+          </div>
         </React.Fragment>
 
       )

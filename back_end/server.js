@@ -28,7 +28,7 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
       res.json(data)
     })
   })
-
+  
   // Show one fighter
   server.get('/api/fighters/:id', function(req, res){
     fetch(`http://ufc-data-api.ufc.com/api/v3/iphone/fighters/${req.params.id}.json`)
@@ -47,10 +47,10 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
   })
 
   //Delete all teams
-  server.delete('/api/team', function(req, res){
+  server.delete('/api/teams', function(req, res){
     const filterObject = {};
-    const fightersCollection = db.collection('teams');
-    fightersCollection.deleteMany(filterObject, function(err, result){
+    const teamsCollection = db.collection('teams');
+    teamsCollection.deleteMany(filterObject, function(err, result){
       if(err){
         res.status(500);
         res.send();
@@ -61,11 +61,11 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
   })
 
   // Delete one team
-  server.delete('/api/team/:id', function(req, res){
-    const fightersCollection = db.collection('teams');
+  server.delete('/api/teams/:id', function(req, res){
+    const teamsCollection = db.collection('teams');
     const objectID = ObjectID(req.params.id);
     const filterObject = {_id: objectID};
-    fightersCollection.deleteOne(filterObject, function(err, result){
+    teamsCollection.deleteOne(filterObject, function(err, result){
       if(err){
         res.status(500);
         res.send();
@@ -76,10 +76,10 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
   })
 
   //Create a new team
-  server.post('/api/team', function(req, res){
-    const fightersCollection = db.collection('teams');
+  server.post('/api/teams', function(req, res){
+    const teamsCollection = db.collection('teams');
     const teamToSave = req.body;
-    fightersCollection.save(teamToSave, function(err, result){
+    teamsCollection.save(teamToSave, function(err, result){
       if(err){
         console.log(err);
         res.status(500);
@@ -93,9 +93,9 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
   })
 
   // Show all teams
-  server.get('/api/team', function(req, res){
-    const fightersCollection = db.collection('teams');
-    fightersCollection.find().toArray(function(err, allTeams){
+  server.get('/api/teams', function(req, res){
+    const teamsCollection = db.collection('teams');
+    teamsCollection.find().toArray(function(err, allTeams){
       if(err){
         console.log(err);
         res.status(500);
@@ -106,6 +106,37 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
 
     })
   })
+
+  server.get('api/teams/playerteam', function(req, res){
+    const teamsCollection = db.collection('teams');
+    // const filterObject = {player_team: {$exists : true } };
+    // console.log(filterObject);
+    teamsCollection.distinct("player_team", function(err, result){
+      if(err){
+        console.log(err);
+        res.status(500);
+        res.send()
+      }
+      res.json(result);
+    })
+  })
+
+  // Show one team by id
+  server.get('/api/teams/:id', function(req, res){
+    const teamsCollection = db.collection('teams');
+    const objectID = ObjectID(req.params.id);
+    const filterObject = {_id: objectID};
+    teamsCollection.findOne(filterObject, function(err, result){
+      if(err){
+        console.log(err);
+        res.status(500);
+        res.send();
+      }
+      res.json(result);
+      // res.json(201);
+    })
+  })
+
 
   server.listen(3001, function(){
     console.log("Listening on port 3001");
