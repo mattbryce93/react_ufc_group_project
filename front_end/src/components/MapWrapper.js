@@ -48,7 +48,7 @@ class MapWrapper extends Component{
     if(!this.props.selectedFighter){
       return null;
     }
-    const position = [51.505, -0.09];
+    const position = [25, 15];
     return(
       <React.Fragment>
         <Map zoom={1.5} center={position}>

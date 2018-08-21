@@ -30,7 +30,7 @@ class FighterBarGraph extends Component{
     }
 
     return (
-      <Chart chartType="BarChart" width="100%" height="400px" data={data} options={options}/>
+      <Chart chartType="BarChart" width="100%" height="100%" data={data} options={options}/>
     )
   }
 
@@ -87,10 +87,10 @@ class FighterBarGraph extends Component{
 
     return (
       <React.Fragment>
-        <Chart chartType="PieChart" width="100%" height="400px" data={win_data} options={win_options}/>
-        <Chart chartType="PieChart" width="100%" height="400px" data={strike_data} options={strike_options}/>
-        <Chart chartType="PieChart" width="100%" height="400px" data={striking_data} options={striking_options}/>
-        <Chart chartType="PieChart" width="100%" height="400px" data={takedown_data} options={takedown_options}/>
+          <Chart chartType="PieChart" width="200px" height="auto" data={win_data} options={win_options}/>
+          <Chart chartType="PieChart" width="200px" height="auto" data={strike_data} options={strike_options}/>
+          <Chart chartType="PieChart" width="200px" height="auto" data={striking_data} options={striking_options}/>
+          <Chart chartType="PieChart" width="200px" height="auto" data={takedown_data} options={takedown_options}/>
       </React.Fragment>
     )
   }
@@ -100,8 +100,12 @@ class FighterBarGraph extends Component{
   render(){
     return (
       <React.Fragment>
-        {this.renderBarGraphData()}
-        {this.renderPieGraphData()}
+        <div className="barChart">
+          {this.renderBarGraphData()}
+        </div>
+        <div className="pieChart">
+          {this.renderPieGraphData()}
+        </div>
       </React.Fragment>
     )
   }
