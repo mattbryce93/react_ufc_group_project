@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
-import { OpenStreetMapProvider } from 'leaflet-geosearch';
+import { Map, TileLayer } from 'react-leaflet';
 import MapMarker from './MapMarker'
 import './MapWrapper.css'
 import _ from 'lodash';
@@ -28,7 +27,7 @@ class MapWrapper extends Component{
   }
 
   getCoords(){
-    let coords = _.map(this.state.locations, location => {
+    _.forEach(this.state.locations, location => {
       const url="http://localhost:3001/api/coords/" + location.City;
       fetch(url)
       .then(response => response.json())
