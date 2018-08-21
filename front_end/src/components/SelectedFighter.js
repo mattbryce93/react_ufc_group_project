@@ -115,7 +115,19 @@ getStrengths(){
   return(<p>Strengths: {this.state.selectedFighter.strengths}</p>)
 }
 
+getMap(){
+  if(!this.state.selectedFighter){
+    return null;
+  }
+  return(<MapWrapper selectedFighter={this.state.selectedFighter}/>)
+}
 
+getGraphs(){
+  if(!this.state.selectedFighter){
+    return null;
+  }
+  return(<FighterBarGraph selectedFighter={this.state.selectedFighter}/>)
+}
 
 render(){
   return(

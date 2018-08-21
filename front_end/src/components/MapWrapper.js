@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
+import MapMarker from './MapMarker'
 import './MapWrapper.css'
 import _ from 'lodash';
 
@@ -8,36 +9,56 @@ class MapWrapper extends Component{
   constructor(props){
     super(props);
     this.state = {
-      fights: []
+      locations: [],
+      coords: [],
+      current_coords: null
     }
-    this.renderMap = this.renderMap.bind(this);
+    this.getCoords = this.getCoords.bind(this);
+    this.insertCoords = this.insertCoords.bind(this);
   }
 
-  listFights(){
-    return _.chain(this.props.selectedFighter.fights).map(fight => {
-      return fight.Event.Location
-    }).uniqBy('Venue').value();
-  }
-
-  renderMap(){
+  componentDidMount(){
     if(!this.props.selectedFighter){
       return null;
     }
-    const fights = this.listFights();
+    let locations = (_.chain(this.props.selectedFighter.fights).map(fight => {
+      return fight.Event.Location
+    }).uniqBy('Venue').value());
+    this.setState({locations}, this.getCoords);
+  }
+
+  getCoords(){
+    let coords = _.map(this.state.locations, location => {
+      const url="http://localhost:3001/api/coords/" + location.City;
+      fetch(url)
+      .then(response => response.json())
+      .then(data => this.setState({current_coords: data}, this.insertCoords))
+    })
+  }
+
+  insertCoords(){
+    let coords = this.state.coords;
+    let current_coords = this.state.current_coords;
+    coords.push(current_coords[0]);
+    this.setState({coords});
+  }
+
+
+
+  render(){
+    if(!this.props.selectedFighter){
+      return null;
+    }
     const position = [51.505, -0.09];
     return(
-      <Map zoom={10} center={position}>
-        <TileLayer
-          url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png"
-          attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-        />
-      </Map>
-    )
-  }
-  render(){
-    return(
       <React.Fragment>
-        {this.renderMap()}
+        <Map zoom={1.5} center={position}>
+          <TileLayer
+            url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png"
+            attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+          />
+          <MapMarker coords={this.state.coords}/>
+        </Map>
       </React.Fragment>
     )
   }
