@@ -33,11 +33,12 @@ const DeleteOneFromTeamButton = (props) => {
       return id !== fighter.id
     })
     const newTeam = {"player_team": newFighterList}
-    saveTeam(newTeam);
+
 
     const existingDBTeamId = playerTeam[0]._id;
     const deleteExistingTeamURL = `http://localhost:3001/api/teams/${existingDBTeamId}`;
     deleteTeam(deleteExistingTeamURL);
+    saveTeam(newTeam);
   }
 
   const saveTeam = (teamData) => {
@@ -49,7 +50,8 @@ const DeleteOneFromTeamButton = (props) => {
       },
       body: JSON.stringify(teamData),
     })
-    .then(response => response.json());
+    .then(response => response.json())
+    .then(json => props.handleDeleteOneButton());
   }
 
   const deleteTeam = (url) => {

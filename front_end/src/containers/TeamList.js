@@ -9,7 +9,9 @@ const TeamList = (props) => {
     return <TeamListItem
       fighter={fighter}
       index={index}
-      key={index}/>
+      key={index}
+      handleDeleteOneButton = {props.handleDeleteOneButton}
+    />
     })
 
     return(
@@ -19,7 +21,9 @@ const TeamList = (props) => {
             <h4>Your chosen team</h4>
           </div>
           {allTeamFighterItems}
-          <DeleteAllFromTeamButton />
+          <DeleteAllFromTeamButton
+            handleDeleteAllButton={props.handleDeleteAllButton}
+           />
         </div>
 
       </React.Fragment>

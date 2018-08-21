@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 
-const DeleteAllFromTeamButton = () => {
+const DeleteAllFromTeamButton = (props) => {
 
   const playerTeamURL = "http://localhost:3001/api/teams";
 
@@ -25,16 +25,18 @@ const DeleteAllFromTeamButton = () => {
     .then(function(result){
       deleteAllFightersFromPlayerTeam(filterDBToPlayerTeam(result));
     })
+    // .finally(props.handleDeleteAllButton());
   };
 
   const deleteAllFightersFromPlayerTeam = (playerTeam) => {
     const newTeam = {"player_team": []};
-    saveTeam(newTeam);
+
 
     const existingDBTeamId = playerTeam[0]._id;
     const deleteExistingTeamURL = `http://localhost:3001/api/teams/${existingDBTeamId}`;
     deleteTeam(deleteExistingTeamURL);
-    console.log(playerTeam);
+    saveTeam(newTeam);
+
   }
 
   const saveTeam = (teamData) => {
@@ -46,7 +48,8 @@ const DeleteAllFromTeamButton = () => {
       },
       body: JSON.stringify(teamData), // body data type must match "Content-Type" header
     })
-    .then(response => response.json()); // parses response to JSON
+    .then(response => response.json())
+    .then(json => props.handleDeleteAllButton()); // parses response to JSON
   }
 
   const deleteTeam = (url) => {

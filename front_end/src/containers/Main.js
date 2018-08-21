@@ -21,6 +21,8 @@ class Main extends Component{
     this.hideSelectedPlayer = this.hideSelectedPlayer.bind(this);
     this.hideListContainer = this.hideListContainer.bind(this);
     this.handleAddToTeamButton = this.handleAddToTeamButton.bind(this);
+    this.handleDeleteAllButton = this.handleDeleteAllButton.bind(this);
+    this.handleDeleteOneButton = this.handleDeleteOneButton.bind(this);
   }
 
   componentDidMount(){
@@ -39,6 +41,8 @@ class Main extends Component{
   hideSelectedPlayer(){
     this.setState({selectedFighter: null})
   }
+
+
 
   apiCall() {
     fetch('http://localhost:3001/api/fighters')
@@ -68,20 +72,30 @@ hideListContainer(){
         <ListContainer
           allFighters={this.state.allFighters}
           handleFighterSelect={this.handleFighterSelect}
-          handleAddToTeamButton={this.handleAddToTeamButton}/>
+          handleAddToTeamButton={this.handleAddToTeamButton}
+        />
         </div>
       )
     }
     return (
       <FighterContainer
         selectedFighter={this.state.selectedFighter}
-        hideSelectedPlayer={this.hideSelectedPlayer}/>
+        hideSelectedPlayer={this.hideSelectedPlayer}
+      />
       )
     }
 
     handleAddToTeamButton(){
       this.playerTeamAPICall();
-      console.log('i have been clicked');
+
+    }
+
+    handleDeleteAllButton(){
+      this.playerTeamAPICall();
+    }
+
+    handleDeleteOneButton(){
+      this.playerTeamAPICall();
     }
 
 
@@ -91,7 +105,10 @@ hideListContainer(){
           <NavBar/>
           <Title/>
           <TeamContainer
-            allTeamFighters={this.state.teamFighters}/>
+            allTeamFighters={this.state.teamFighters}
+            handleDeleteAllButton={this.handleDeleteAllButton}
+            handleDeleteOneButton={this.handleDeleteOneButton}
+          />
             {this.hideListContainer()}
           </React.Fragment>
         )

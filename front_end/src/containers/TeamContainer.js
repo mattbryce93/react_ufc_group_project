@@ -9,7 +9,11 @@ const TeamContainer = (props) => {
     <React.Fragment>
       <div className="team-container">
         {/* <p>TeamContainer</p> */}
-        <TeamList allTeamFighters={props.allTeamFighters}/>
+        <TeamList
+          allTeamFighters={props.allTeamFighters}
+          handleDeleteAllButton={props.handleDeleteAllButton}
+          handleDeleteOneButton={props.handleDeleteOneButton}
+        />
       </div>
     </React.Fragment>
   )

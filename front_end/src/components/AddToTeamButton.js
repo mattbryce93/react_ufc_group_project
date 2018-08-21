@@ -28,7 +28,7 @@ const AddToTeamButton = (props) => {
     .then(function(result){
       addSelectedFighterIdToPlayerTeam(filterDBToPlayerTeam(result));
     })
-    .then(props.handleAddToTeamButton());
+    // .then(props.handleAddToTeamButton());
   };
 
   const addSelectedFighterIdToPlayerTeam = (playerTeam) => {
@@ -36,11 +36,12 @@ const AddToTeamButton = (props) => {
     newTeamArray.push(selectedFighter);
 
     const newTeam = {"player_team": newTeamArray};
-    saveTeam(newTeam);
+
 
     const existingDBTeamId = playerTeam[0]._id;
     const deleteExistingTeamURL = `http://localhost:3001/api/teams/${existingDBTeamId}`;
     deleteTeam(deleteExistingTeamURL);
+    saveTeam(newTeam);
   }
 
   // const createNewTeam
@@ -54,7 +55,8 @@ const AddToTeamButton = (props) => {
       },
       body: JSON.stringify(teamData), // body data type must match "Content-Type" header
     })
-    .then(response => response.json()); // parses response to JSON
+    .then(response => response.json())
+    .then(json => props.handleAddToTeamButton()); // parses response to JSON
   }
 
   const deleteTeam = (url) => {
