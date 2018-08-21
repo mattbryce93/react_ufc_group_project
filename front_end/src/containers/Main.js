@@ -14,7 +14,8 @@ class Main extends Component{
       allFighters: [],
       selectedFighter: null,
 
-      teamFighters: []
+      teamFighters: [],
+      teamScore: []
     }
     this.apiCall = this.apiCall.bind(this);
     this.handleFighterSelect = this.handleFighterSelect.bind(this);
@@ -23,11 +24,13 @@ class Main extends Component{
     this.handleAddToTeamButton = this.handleAddToTeamButton.bind(this);
     this.handleDeleteAllButton = this.handleDeleteAllButton.bind(this);
     this.handleDeleteOneButton = this.handleDeleteOneButton.bind(this);
+    this.scoreKeeper = this.scoreKeeper.bind(this);
   }
 
   componentDidMount(){
     this.apiCall();
     this.playerTeamAPICall();
+
   }
 
   handleFighterSelect(event){
@@ -36,6 +39,24 @@ class Main extends Component{
 
   hideSelectedPlayer(){
     this.setState({selectedFighter: null})
+  }
+
+  scoreKeeper(array){
+    console.log(array);
+    let wins = 0;
+    let losses = 0;
+    let draws = 0;
+
+    for(let item of array){
+      // console.log(item);
+      // console.log(item.wins);
+      wins += item.wins;
+      losses += item.losses;
+      draws += item.draws;
+    }
+    console.log(wins);
+    console.log(losses);
+    console.log(draws);
   }
 
 
@@ -58,6 +79,7 @@ playerTeamAPICall(){
   .then(team => this.setState({
     teamFighters: team[0].player_team
   }))
+  .then(() => this.scoreKeeper(this.state.teamFighters))
 }
 
 hideListContainer(){
@@ -77,38 +99,38 @@ hideListContainer(){
         selectedFighter={this.state.selectedFighter}
         hideSelectedPlayer={this.hideSelectedPlayer}
       />
-      )
-    }
+    )
+  }
 
-    handleAddToTeamButton(){
-      this.playerTeamAPICall();
+  handleAddToTeamButton(){
+    this.playerTeamAPICall();
 
-    }
+  }
 
-    handleDeleteAllButton(){
-      this.playerTeamAPICall();
-    }
+  handleDeleteAllButton(){
+    this.playerTeamAPICall();
+  }
 
-    handleDeleteOneButton(){
-      this.playerTeamAPICall();
-    }
+  handleDeleteOneButton(){
+    this.playerTeamAPICall();
+  }
 
 
-    render(){
-      return(
-        <React.Fragment>
-          <NavBar/>
-          <Title/>
-          <TeamContainer
-            allTeamFighters={this.state.teamFighters}
-            handleDeleteAllButton={this.handleDeleteAllButton}
-            handleDeleteOneButton={this.handleDeleteOneButton}
-          />
-            {this.hideListContainer()}
-          </React.Fragment>
-        )
+  render(){
+    return(
+      <React.Fragment>
+        <NavBar/>
+        <Title/>
+        <TeamContainer
+          allTeamFighters={this.state.teamFighters}
+          handleDeleteAllButton={this.handleDeleteAllButton}
+          handleDeleteOneButton={this.handleDeleteOneButton}
+        />
+        {this.hideListContainer()}
+      </React.Fragment>
+    )
 
-      }
-    }
+  }
+}
 
-    export default Main;
+export default Main;
