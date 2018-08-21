@@ -7,6 +7,7 @@ const AddToTeamButton = (props) => {
 
   const playerTeamURL = "http://localhost:3001/api/teams";
   const selectedFighter = props.fighter;
+  const isPlayerInTeam = props.handleFilteringAddToTeamButton;
   // const playerTeamName = "player_team";
 
   const getAllTeams = () => {
@@ -29,7 +30,7 @@ const AddToTeamButton = (props) => {
       addSelectedFighterIdToPlayerTeam(filterDBToPlayerTeam(result));
     })
     .then(props.handleAddToTeamButton)
-    .then(props.handleFilteringAddToTeamButton);
+    // .then(props.handleFilteringAddToTeamButton);
   };
 
   const addSelectedFighterIdToPlayerTeam = (playerTeam) => {
@@ -64,13 +65,12 @@ const AddToTeamButton = (props) => {
     })
   }
 
-
   return(
     <React.Fragment>
       <input type="submit"
         value="Add to team"
         onClick={handleSubmitClick}
-        className="fighterTable-list-item-addToTeam-BUTTON"
+        className={`fighterTable-list-item-addToTeam-BUTTON-${props.inTeam}`}
         // styling in ListItem.css
       />
     </React.Fragment>

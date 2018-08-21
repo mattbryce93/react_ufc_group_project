@@ -6,6 +6,9 @@ import _ from 'lodash';
 class ListItem extends Component{
   constructor(props){
     super(props);
+    this.state = {
+      inTeam: false
+    }
 
     this.handleFilteringAddToTeamButton = this.handleFilteringAddToTeamButton.bind(this);
 
@@ -14,25 +17,39 @@ class ListItem extends Component{
   }
 
   handleFilteringAddToTeamButton(){
-
      // let fighterFoundInTeam = false;
      let fighterFound = false;
 
      _.forEach(this.currentTeam, function(teamFighter) {
-
        if (teamFighter.id === this.fighterID)
        {
          fighterFound = true;
+         this.setState({inTeam: true})
          // console.log(`${this.fighterID} is present`);
          return ;
        }
-
      }.bind(this))
-
-     console.log(fighterFound);
+     // console.log(fighterFound);
      return fighterFound;
+     // componentDidMount
+     // setState(fighterFound) (starts false)
+     // handleState function to return string
    }
 
+   componentDidMount(){
+     this.handleFilteringAddToTeamButton();
+   }
+
+     //
+     // const handleClassName = () => {
+     //   let isPlayerInTeam = this.props.handleFilteringAddToTeamButton;
+     //   if(isPlayerInTeam === true){
+     //     return "fighterTable-list-item-addToTeam-BUTTON";
+     //   } else {
+     //     return "fighterTable-list-item-addToTeam-BUTTON-INVISIBLE";
+     //   }
+     //   console.log(isPlayerInTeam);
+     // }
 
   render(){
 
@@ -53,7 +70,8 @@ class ListItem extends Component{
               <AddToTeamButton
                 handleFilteringAddToTeamButton={this.handleFilteringAddToTeamButton}
                 fighter={this.props.fighter}
-                handleAddToTeamButton={this.props.handleAddToTeamButton}/>
+                handleAddToTeamButton={this.props.handleAddToTeamButton}
+                inTeam={this.state.inTeam}/>
               </td>
             </tr>
           </React.Fragment>
