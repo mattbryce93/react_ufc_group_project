@@ -32,8 +32,18 @@ const AddToTeamButton = (props) => {
 
   };
 
+  const filterIf = (playerTeam) => {
+    const array = playerTeam[0].player_team;
+    let fighterIDToCheck = selectedFighter.id;
+
+    for (let fighter of array){
+      if (fighter.id === fighterIDToCheck)
+      return false;
+    } return true;
+  }
+
   const addSelectedFighterIdToPlayerTeam = (playerTeam) => {
-    if (playerTeam[0].player_team.length < 4){
+    if (playerTeam[0].player_team.length < 4 && filterIf(playerTeam) ){
     const newTeamArray = playerTeam[0].player_team;
     newTeamArray.push(selectedFighter);
 
