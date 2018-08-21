@@ -7,3 +7,18 @@
     margin-left: 0px;
   }
 }
+
+.fighterBarChart {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pieChart {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.barChart{
+  width: 50%;
+}
