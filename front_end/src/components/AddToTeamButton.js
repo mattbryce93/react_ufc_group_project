@@ -7,7 +7,7 @@ const AddToTeamButton = (props) => {
 
   const playerTeamURL = "http://localhost:3001/api/teams";
   const selectedFighter = props.fighter;
-  const isPlayerInTeam = props.handleFilteringAddToTeamButton;
+  // const isPlayerInTeam = props.handleFilteringAddToTeamButton;
   // const playerTeamName = "player_team";
 
   const getAllTeams = () => {
@@ -29,10 +29,11 @@ const AddToTeamButton = (props) => {
     .then(function(result){
       addSelectedFighterIdToPlayerTeam(filterDBToPlayerTeam(result));
     })
-    // .then(props.handleAddToTeamButton());
+
   };
 
   const addSelectedFighterIdToPlayerTeam = (playerTeam) => {
+    if (playerTeam[0].player_team.length < 4){
     const newTeamArray = playerTeam[0].player_team;
     newTeamArray.push(selectedFighter);
 
@@ -43,6 +44,7 @@ const AddToTeamButton = (props) => {
     const deleteExistingTeamURL = `http://localhost:3001/api/teams/${existingDBTeamId}`;
     deleteTeam(deleteExistingTeamURL);
     saveTeam(newTeam);
+    }
   }
 
   // const createNewTeam
@@ -57,7 +59,7 @@ const AddToTeamButton = (props) => {
       body: JSON.stringify(teamData), // body data type must match "Content-Type" header
     })
     .then(response => response.json())
-    .then(json => props.handleAddToTeamButton()); // parses response to JSON
+    .then(json => props.handleAddToTeamButton()) // parses response to JSON
   }
 
   const deleteTeam = (url) => {

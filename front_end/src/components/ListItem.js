@@ -19,6 +19,7 @@ class ListItem extends Component{
   handleFilteringAddToTeamButton(){
      // let fighterFoundInTeam = false;
      let fighterFound = false;
+     console.log('clicked');
 
      _.forEach(this.currentTeam, function(teamFighter) {
        if (teamFighter.id === this.fighterID)
