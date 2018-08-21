@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SelectedFighter from '../components/SelectedFighter'
+import './FighterContainer.css'
 
 class FighterContainer extends Component{
   render(){
