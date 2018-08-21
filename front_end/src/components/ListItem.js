@@ -62,7 +62,7 @@ class ListItem extends Component{
       return(
         <React.Fragment>
           <tr className="fighterTable-list-item" onClick={this.props.handleFighterSelect}>
-            {/* <td id={this.props.fighter.id}>{thumbnailImg}</td> */}
+            <td id={this.props.fighter.id}>{thumbnailImg}</td>
             <td id={this.props.fighter.id} className="fighterTable-fighter-name">{prettyName}</td>
             <td id={this.props.fighter.id} className="fighterTable-fighter-weightclass">{this.props.fighter.weight_class}</td>
 

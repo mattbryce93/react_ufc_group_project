@@ -1,5 +1,5 @@
 body{
-  background-color: black;
+  background-color: white;
 }
 
 .search-container {
@@ -12,9 +12,11 @@ body{
 
 .title-container{
   display: flex;
-  height: 200px;
+  height: 300px;
   flex-wrap: wrap;
   justify-content: center;
+  border-radius: 40px;
+
   /* align-items: center; */
 }
 
