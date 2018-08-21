@@ -15,7 +15,7 @@ class Main extends Component{
       selectedFighter: null,
 
       teamFighters: [],
-      teamScore: []
+      teamScore: 0
     }
     this.apiCall = this.apiCall.bind(this);
     this.handleFighterSelect = this.handleFighterSelect.bind(this);
@@ -54,9 +54,8 @@ class Main extends Component{
       losses += item.losses;
       draws += item.draws;
     }
-    console.log(wins);
-    console.log(losses);
-    console.log(draws);
+    let score = wins - losses;
+    this.setState({teamScore: score})
   }
 
 
@@ -125,6 +124,7 @@ hideListContainer(){
           allTeamFighters={this.state.teamFighters}
           handleDeleteAllButton={this.handleDeleteAllButton}
           handleDeleteOneButton={this.handleDeleteOneButton}
+          teamScore={this.state.teamScore}
         />
         {this.hideListContainer()}
       </React.Fragment>

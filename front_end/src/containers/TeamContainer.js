@@ -14,6 +14,7 @@ const TeamContainer = (props) => {
           handleDeleteAllButton={props.handleDeleteAllButton}
           handleDeleteOneButton={props.handleDeleteOneButton}
         />
+        {props.teamScore}
       </div>
     </React.Fragment>
   )
