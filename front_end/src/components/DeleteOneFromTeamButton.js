@@ -29,8 +29,8 @@ const DeleteOneFromTeamButton = (props) => {
 
   const deleteFighterFromPlayerTeam = (playerTeam, id) => {
     const fighterList = playerTeam[0].player_team;
-    const newFighterList = _.dropWhile(fighterList, (fighter) => {
-      return id === fighter.id
+    const newFighterList = _.filter(fighterList, (fighter) => {
+      return id !== fighter.id
     })
     const newTeam = {"player_team": newFighterList}
     saveTeam(newTeam);
