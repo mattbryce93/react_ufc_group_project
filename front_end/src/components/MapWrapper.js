@@ -10,29 +10,39 @@ class MapWrapper extends Component{
     super(props);
     this.state = {
       locations: [],
-      coords: []
+      coords: [],
+      current_coords: null
     }
+    this.getCoords = this.getCoords.bind(this);
+    this.insertCoords = this.insertCoords.bind(this);
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot){
+  componentDidMount(){
     if(!this.props.selectedFighter){
       return null;
     }
-    let locations =[]
-    let venues = (_.chain(this.props.selectedFighter.fights).map(fight => {
+    let locations = (_.chain(this.props.selectedFighter.fights).map(fight => {
       return fight.Event.Location
     }).uniqBy('Venue').value());
-    locations.push(venues)
-    this.setState({locations});
+    this.setState({locations}, this.getCoords);
   }
 
-  // getCoords(){
-  //   const url="https://nominatim.openstreetmap.org/search?q=Mumbai&format=json"
-  //   debugger;
-  //   fetch(url)
-  //   .then(response => response.json())
-  //   .then(data => this.setState({coords: data}))
-  //   }
+  getCoords(){
+    let coords = _.map(this.state.locations, location => {
+      const url="http://localhost:3001/api/coords/" + location.City;
+      fetch(url)
+      .then(response => response.json())
+      .then(data => this.setState({current_coords: data}, this.insertCoords))
+    })
+    console.log(this.state);
+  }
+
+  insertCoords(){
+    let coords = this.state.coords;
+    let current_coords = this.state.current_coords;
+    coords.push(current_coords);
+    this.setState({coords});
+  }
 
   render(){
     if(!this.props.selectedFighter){

@@ -115,7 +115,19 @@ getStrengths(){
   return(<p>Strengths: {this.state.selectedFighter.strengths}</p>)
 }
 
+getMap(){
+  if(!this.state.selectedFighter){
+    return null;
+  }
+  return(<MapWrapper selectedFighter={this.state.selectedFighter}/>)
+}
 
+getGraphs(){
+  if(!this.state.selectedFighter){
+    return null;
+  }
+  return(<FighterBarGraph selectedFighter={this.state.selectedFighter}/>)
+}
 
 render(){
   return(
@@ -130,8 +142,8 @@ render(){
       {this.getCountry()}
       {this.getStrengths()}
       {this.getAverageFightDuration()}
-      <FighterBarGraph selectedFighter={this.state.selectedFighter}/>
-      <MapWrapper selectedFighter={this.state.selectedFighter}/>
+      {this.getGraphs()}
+      {this.getMap()}
       <button onClick={this.props.hideSelectedPlayer}>Back to List</button>
     </React.Fragment>
   )
