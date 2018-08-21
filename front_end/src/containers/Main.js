@@ -4,6 +4,7 @@ import Title from '../components/Title'
 import NavBar from '../components/NavBar'
 import TeamContainer from './TeamContainer';
 import FighterContainer from './FighterContainer';
+import Footer from './Footer';
 import "./Main.css"
 
 
@@ -104,11 +105,11 @@ hideListContainer(){
             handleDeleteAllButton={this.handleDeleteAllButton}
             handleDeleteOneButton={this.handleDeleteOneButton}
           />
-            {this.hideListContainer()}
-          </React.Fragment>
-        )
-
-      }
+          {this.hideListContainer()}
+          <Footer/>
+        </React.Fragment>
+      )
     }
+  }
 
-    export default Main;
+export default Main;
