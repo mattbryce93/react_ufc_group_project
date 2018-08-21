@@ -147,12 +147,12 @@ render(){
           {this.getAverageFightDuration()}
         </div>
       </div>
-      <div className="fighterBarChart">
-        {this.getGraphs()}
-      </div>
-      <div className="map">
-        {this.getMap()}
-      </div>
+    <div className="fighterBarChart">
+      <FighterBarGraph selectedFighter={this.state.selectedFighter}/>
+    </div>
+    <div className="map">
+      <MapWrapper selectedFighter={this.state.selectedFighter}/>
+    </div>
       <button onClick={this.props.hideSelectedPlayer}>Back to List</button>
     </React.Fragment>
   )
