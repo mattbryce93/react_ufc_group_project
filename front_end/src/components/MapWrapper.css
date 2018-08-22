@@ -1,10 +1,15 @@
 .leaflet-container {
-  height: 400px;
+  height: 500px;
   width: 100%;
   z-index: 0;
 }
 
-.map {
+.map-container {
   width: 45%;
   padding: 20px;
+  text-align: center;
+}
+
+.mapWrapper-title {
+
 }

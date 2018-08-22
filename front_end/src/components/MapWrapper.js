@@ -51,7 +51,6 @@ class MapWrapper extends Component{
     const position = [25, 15];
     return(
       <React.Fragment>
-        <p>Locations of past Fights</p>
         <Map zoom={1.5} center={position}>
           <TileLayer
             url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png"

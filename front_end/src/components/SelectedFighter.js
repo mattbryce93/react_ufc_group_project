@@ -52,11 +52,11 @@ prettyName(){
   }
   if(!this.state.selectedFighter.nickname){
     return(
-      <p>Name: {this.state.selectedFighter.first_name} {this.state.selectedFighter.last_name}</p>
+      <h4 className="selectedFighter-name">{this.state.selectedFighter.first_name} {this.state.selectedFighter.last_name}</h4>
     )
   }
   return(
-    <p>Name: {this.state.selectedFighter.first_name} "{this.state.selectedFighter.nickname}" {this.state.selectedFighter.last_name}</p>
+    <h4 className="selectedFighter-name">{this.state.selectedFighter.first_name} "{this.state.selectedFighter.nickname}" {this.state.selectedFighter.last_name}</h4>
   )
 }
 
@@ -152,12 +152,15 @@ render(){
           {this.getAverageFightDuration()}
         </div>
       </div>
+
       <div className="barChartAndMap-container">
         <div className="fighterBarChart-container">
+          <h4 className="chart-title">Stats</h4>
           {this.getGraphs()}
         </div>
 
-        <div className="map">
+        <div className="map-container">
+          <h4 className="mapWrapper-title">Locations of past Fights</h4>
           {this.getMap()}
         </div>
 
