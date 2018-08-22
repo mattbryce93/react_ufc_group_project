@@ -35,16 +35,20 @@ class ListContainer extends Component{
 
   processFiltering(){
     let filteredFighters = this.props.allFighters;
-
+    
     if(this.state.textFilter){
       //incorporate first and last name filtering here
-      let textArray = this.state.textFilter.split(' ');
-      filteredFighters = _.filter(filteredFighters, (fighter) => {
-        return _.includes(fighter.first_name.toLowerCase(), textArray[0].toLowerCase());
+      let filter = _.filter(this.state.textFilter.split(' '), function(string){
+        return (string.length > 0);
       });
-      if(textArray.length > 1){
+      if(filter.length === 1){
         filteredFighters = _.filter(filteredFighters, (fighter) => {
-          return _.includes(fighter.last_name.toLowerCase(), textArray[1].toLowerCase());
+          return (_.includes(fighter.first_name.toLowerCase(), filter[0].toLowerCase()) || _.includes(fighter.last_name.toLowerCase(), filter[0].toLowerCase()));
+        });
+      }
+      if(filter.length > 1){
+        filteredFighters = _.filter(filteredFighters, (fighter) => {
+          return (_.includes(fighter.first_name.toLowerCase(), filter[0].toLowerCase()) && _.includes(fighter.last_name.toLowerCase(), filter[1].toLowerCase()));
         });
       }
     }
