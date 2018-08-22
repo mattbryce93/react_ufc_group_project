@@ -15,7 +15,8 @@ class Main extends Component{
       selectedFighter: null,
 
       teamFighters: [],
-      teamScore: 0
+      teamScore: 0,
+
     }
     this.apiCall = this.apiCall.bind(this);
     this.handleFighterSelect = this.handleFighterSelect.bind(this);
@@ -25,6 +26,7 @@ class Main extends Component{
     this.handleDeleteAllButton = this.handleDeleteAllButton.bind(this);
     this.handleDeleteOneButton = this.handleDeleteOneButton.bind(this);
     this.scoreKeeper = this.scoreKeeper.bind(this);
+    this.handleClicked = this.handleClicked.bind(this);
   }
 
   componentDidMount(){
@@ -32,6 +34,8 @@ class Main extends Component{
     this.playerTeamAPICall();
 
   }
+
+
 
   handleFighterSelect(event){
     this.setState({selectedFighter: event.target.id})
@@ -42,17 +46,16 @@ class Main extends Component{
   }
 
   scoreKeeper(array){
-    console.log(array);
     let wins = 0;
     let losses = 0;
-    let draws = 0;
+    // let draws = 0;
 
     for(let item of array){
       // console.log(item);
       // console.log(item.wins);
       wins += item.wins;
       losses += item.losses;
-      draws += item.draws;
+      // draws += item.draws;
     }
     let score = wins - losses;
     this.setState({teamScore: score})
@@ -89,7 +92,9 @@ hideListContainer(){
           allFighters={this.state.allFighters}
           handleFighterSelect={this.handleFighterSelect}
           handleAddToTeamButton={this.handleAddToTeamButton}
-          currentTeam={this.state.teamFighters}/>
+          currentTeam={this.state.teamFighters}
+
+        />
         </div>
       )
     }
@@ -100,6 +105,14 @@ hideListContainer(){
       />
     )
   }
+  handleClicked(){
+    let holder = this.state.allFighters
+    console.log(holder);
+    this.setState({allFighters: null})
+    this.setState({allFighters: holder});
+
+  }
+
 
   handleAddToTeamButton(){
     this.playerTeamAPICall();
@@ -108,10 +121,12 @@ hideListContainer(){
 
   handleDeleteAllButton(){
     this.playerTeamAPICall();
+
   }
 
   handleDeleteOneButton(){
     this.playerTeamAPICall();
+
   }
 
 
@@ -123,9 +138,12 @@ hideListContainer(){
           allTeamFighters={this.state.teamFighters}
           handleDeleteAllButton={this.handleDeleteAllButton}
           handleDeleteOneButton={this.handleDeleteOneButton}
+          handleClicked={this.handleClicked}
           teamScore={this.state.teamScore}
+
         />
         {this.hideListContainer()}
+        <Footer/>
       </React.Fragment>
     )
 

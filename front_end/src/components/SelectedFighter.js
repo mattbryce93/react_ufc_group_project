@@ -24,7 +24,6 @@ class SelectedFighter extends Component{
 
   fetchFighterObject(){
     const url = `http://localhost:3001/api/fighters/${this.props.selectedFighter}`
-    console.log(url);
     fetch(url)
     .then(response => response.json())
     .then(fighter => this.setState({
@@ -41,7 +40,7 @@ getImage(){
   if(!this.state.selectedFighter){
     return null;
   }
-  return(<img src={this.state.selectedFighter.left_full_body_image}/>)
+  return(<img src={this.state.selectedFighter.left_full_body_image} alt="fighter profile"/>)
 }
 
 

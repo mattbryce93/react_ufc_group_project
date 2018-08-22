@@ -65,8 +65,8 @@ class ListFilter extends Component {
               <select
                 name="weightclass-selector"
                 id="weightclass-selector"
-                onChange={this.handleWeightSelectorChange}>
-                <option selected disabled>Filter by Weight Class</option>
+                onChange={this.handleWeightSelectorChange} defaultValue="default">
+                <option value="default" disabled>Filter by Weight Class</option>
                 {this.generateWeights()}
               </select>
               <div className="titleHolder-radio-container">
