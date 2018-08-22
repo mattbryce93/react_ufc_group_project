@@ -27,6 +27,7 @@ class Main extends Component{
     this.handleDeleteOneButton = this.handleDeleteOneButton.bind(this);
     this.scoreKeeper = this.scoreKeeper.bind(this);
     this.handleClicked = this.handleClicked.bind(this);
+    this.apiSetter = this.apiSetter.bind(this);
   }
 
   componentDidMount(){
@@ -75,14 +76,29 @@ class Main extends Component{
   )
 }
 
+apiSetter(array){
+  if(!array[0]){
+    fetch("http://localhost:3001/api/teams", {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+      body: JSON.stringify({"player_team": []}), // body data type must match "Content-Type" header
+    })
+  }else {
+    return {teamFighters: array[0].player_team}
+  }
+}
+
 playerTeamAPICall(){
   fetch('http://localhost:3001/api/teams')
   .then(response => response.json())
-  .then(team => this.setState({
-    teamFighters: team[0].player_team
-  }))
+  .then(team => this.setState(
+    this.apiSetter(team)
+  ))
   .then(() => this.scoreKeeper(this.state.teamFighters))
 }
+
 
 hideListContainer(){
   if(!this.state.selectedFighter){
@@ -107,10 +123,8 @@ hideListContainer(){
   }
   handleClicked(){
     let holder = this.state.allFighters
-    console.log(holder);
     this.setState({allFighters: null})
     this.setState({allFighters: holder});
-
   }
 
 

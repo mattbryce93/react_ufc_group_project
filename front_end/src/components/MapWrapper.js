@@ -47,10 +47,16 @@ class MapWrapper extends Component{
     let coords = this.state.coords;
     let all_lats = [];
     _.map(coords, function(coord){
+      if(!coord){
+        return null;
+      }
       all_lats.push(parseFloat(coord.lat));
     });
     let all_lons = [];
     _.map(coords, function(coord){
+      if(!coord){
+        return null;
+      }
       all_lons.push(parseFloat(coord.lon));
     });
     let avg_lat = _.meanBy(all_lats);
