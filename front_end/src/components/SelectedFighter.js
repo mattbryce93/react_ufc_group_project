@@ -24,7 +24,6 @@ class SelectedFighter extends Component{
 
   fetchFighterObject(){
     const url = `http://localhost:3001/api/fighters/${this.props.selectedFighter}`
-    console.log(url);
     fetch(url)
     .then(response => response.json())
     .then(fighter => this.setState({

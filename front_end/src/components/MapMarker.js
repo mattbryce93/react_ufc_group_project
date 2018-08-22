@@ -11,7 +11,7 @@ const MapMarker = (props) => {
       return null;
     }
     return (
-      <Marker position = {[coord.lat, coord.lon]}>
+      <Marker position = {[coord.lat, coord.lon]} key={coord.lat}>
       <Popup>{coord.display_name}</Popup>
     </Marker>
     )

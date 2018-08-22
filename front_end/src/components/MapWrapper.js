@@ -57,7 +57,7 @@ class MapWrapper extends Component{
             url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png"
             attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           />
-          <MapMarker coords={this.state.coords}/>
+          <MapMarker coords={this.state.coords} key={this.props.selectedFighter.id}/>
         </Map>
       </React.Fragment>
     )
