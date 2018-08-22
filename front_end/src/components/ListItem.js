@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import LazyLoad from 'react-lazy-load';
 import AddToTeamButton from './AddToTeamButton';
 import "./ListItem.css";
 import _ from 'lodash';
@@ -69,10 +70,13 @@ class ListItem extends Component{
   render(){
 
     const prettyName = this.props.fighter.first_name + " " + this.props.fighter.last_name;
-    const thumbnailImg = <img id={this.props.fighter.id}
-      className="fighterTable-fighter-thumbnail"
-      src={this.props.fighter.profile_image}
-      alt={prettyName}/>;
+    const thumbnailImg =
+      <LazyLoad height={100}>
+        <img id={this.props.fighter.id}
+        className="fighterTable-fighter-thumbnail"
+        src={this.props.fighter.profile_image}
+        alt={prettyName}/>
+      </LazyLoad>;
 
       return(
         <React.Fragment>
