@@ -2,8 +2,6 @@ import React from 'react';
 import _ from 'lodash';
 
 const DeleteOneFromTeamButton = (props) => {
-  console.log(props);
-
   const id = props.id;
   const playerTeamURL = "http://localhost:3001/api/teams";
 

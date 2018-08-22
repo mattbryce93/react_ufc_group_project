@@ -68,7 +68,7 @@ getAge(){
   const parsedCurrentDate = Date.parse(currentDate);
   const parsedFightersDOB = Date.parse(fightersDOB);
   const age_millseconds = parsedCurrentDate - parsedFightersDOB
-  const age = parseInt(age_millseconds/(1000 * 60 * 60 * 24 * 365.25));
+  const age = parseInt(age_millseconds/(1000 * 60 * 60 * 24 * 365.25), 10);
   return (<div className="selectedFighter-row"><p className="selectedFighter-dem-title">Age</p> <p className="selectedFighter-dem-info">{age}</p></div>);
 }
 
