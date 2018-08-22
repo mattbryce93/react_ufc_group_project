@@ -100,7 +100,7 @@ getWeight(){
   if(!this.state.selectedFighter){
     return null;
   }
-  return(<p>Weight {this.state.selectedFighter.weight}</p>)
+  return(<p>Weight {this.state.selectedFighter.weight} lbs</p>)
 }
 
 getAverageFightDuration(){
