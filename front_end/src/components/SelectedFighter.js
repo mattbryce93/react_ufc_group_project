@@ -41,7 +41,7 @@ getImage(){
   if(!this.state.selectedFighter){
     return null;
   }
-  return(<img src={this.state.selectedFighter.left_full_body_image}/>)
+  return(<img src={this.state.selectedFighter.left_full_body_image} alt="fighter profile"/>)
 }
 
 
@@ -69,7 +69,7 @@ getAge(){
   const parsedCurrentDate = Date.parse(currentDate);
   const parsedFightersDOB = Date.parse(fightersDOB);
   const age_millseconds = parsedCurrentDate - parsedFightersDOB
-  const age = parseInt(age_millseconds/(1000 * 60 * 60 * 24 * 365.25));
+  const age = parseInt(age_millseconds/(1000 * 60 * 60 * 24 * 365.25), 10);
   return (<p>Age: {age}</p>);
 }
 

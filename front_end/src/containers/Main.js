@@ -43,17 +43,16 @@ class Main extends Component{
   }
 
   scoreKeeper(array){
-    console.log(array);
     let wins = 0;
     let losses = 0;
-    let draws = 0;
+    // let draws = 0;
 
     for(let item of array){
       // console.log(item);
       // console.log(item.wins);
       wins += item.wins;
       losses += item.losses;
-      draws += item.draws;
+      // draws += item.draws;
     }
     let score = wins - losses;
     this.setState({teamScore: score})
