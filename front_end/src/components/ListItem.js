@@ -14,6 +14,7 @@ class ListItem extends Component{
     this.prettyWeight = this.prettyWeight.bind(this);
     this.currentTeam = props.currentTeam;
     this.fighterID = props.fighter.id;
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleFilteringAddToTeamButton(){
@@ -60,6 +61,11 @@ class ListItem extends Component{
     return prettyWeight.join(' ');
   }
 
+  handleClick() {
+    this.setState({inTeam: true});
+    console.log('Clicky click');
+  }
+
   render(){
 
     const prettyName = this.props.fighter.first_name + " " + this.props.fighter.last_name;
@@ -80,7 +86,7 @@ class ListItem extends Component{
 
             <td className="fighterTable-addToTeamButton">
               <AddToTeamButton
-                handleFilteringAddToTeamButton={this.handleFilteringAddToTeamButton}
+                handleClick={this.handleClick}
                 fighter={this.props.fighter}
                 handleAddToTeamButton={this.props.handleAddToTeamButton}
                 inTeam={this.state.inTeam}/>
