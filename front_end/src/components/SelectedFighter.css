@@ -12,7 +12,7 @@
 .selectedFighterImage img {
     width: auto;
     height: 500px;
-    margin: 200px 50px 0px 40px;
+    margin: 200px 50px 0px 20px;
 }
 
 .selectedFighterDetails {
@@ -20,6 +20,7 @@
  flex-direction: column;
  flex-wrap: wrap;
  justify-content: center;
+ padding-right: 10px;
 }
 
 .imageAndDetails {
@@ -36,8 +37,9 @@
 }
 
 .selectedFighter-name {
-  font-size: 36px;
+  font-size: 46px;
   margin-top: 0px;
+  margin-bottom: 40px;
 }
 
 .selectedFighter-row {
