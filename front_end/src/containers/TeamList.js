@@ -7,7 +7,7 @@ const TeamList = (props) => {
   let allTeamFighterItems = null;
 
   if (props.allTeamFighters.length === 0){
-    allTeamFighterItems = <p className="empty-team-message">Fighters List is Empty</p>
+    allTeamFighterItems = <p className="empty-team-message">Currently empty</p>
   } else {
     allTeamFighterItems = props.allTeamFighters.map((fighter, index) => {
       return <TeamListItem

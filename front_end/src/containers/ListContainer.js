@@ -106,7 +106,7 @@ class ListContainer extends Component{
     }
     return(
       <React.Fragment>
-        {/* <Title/> */}
+        <Title/>
         {/* TITLE COMMENTED OUT BUT THIS IS WHERE IT GOES */}
         <div className="list-container">
           <ListFilter
