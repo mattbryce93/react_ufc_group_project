@@ -69,6 +69,7 @@ const AddToTeamButton = (props) => {
     })
     .then(response => response.json())
     .then(json => props.handleAddToTeamButton()) // parses response to JSON
+    .then((result) => props.handleClick())
   }
 
   const deleteTeam = (url) => {

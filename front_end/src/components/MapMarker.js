@@ -6,10 +6,15 @@ const MapMarker = (props) => {
     return null;
   }
 
-  const markers = props.coords.map((coords) => {
-    return <Marker position = {[coords.lat, coords.lon]}>
-      <Popup>{coords.display_name}</Popup>
+  const markers = props.coords.map((coord) => {
+    if (!coord){
+      return null;
+    }
+    return (
+      <Marker position = {[coord.lat, coord.lon]} key={coord.lat}>
+      <Popup>{coord.display_name}</Popup>
     </Marker>
+    )
   })
 
   return(
@@ -20,23 +25,3 @@ const MapMarker = (props) => {
 }
 
 export default MapMarker;
-
-// const allListItems = props.listedFighters.map((fighter, index) => {
-//   return <ListItem fighter={fighter} index={index} key={index} handleFighterSelect={props.handleFighterSelect}/>
-// })
-//
-// return(
-//   <React.Fragment>
-//     <table className="fighterTable">
-//       <tbody>
-//         <tr className="fighterTable-header">
-//           {/* First th is blank as this is the thumbnail image column */}
-//           <th></th>
-//           <th>Name</th>
-//           <th>Weight class</th>
-//         </tr>
-//         {allListItems}
-//       </tbody>
-//     </table>
-//   </React.Fragment>
-// )
