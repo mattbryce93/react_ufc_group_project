@@ -51,11 +51,11 @@ prettyName(){
   }
   if(!this.state.selectedFighter.nickname){
     return(
-      <p>Name: {this.state.selectedFighter.first_name} {this.state.selectedFighter.last_name}</p>
+      <h4 className="selectedFighter-name">{this.state.selectedFighter.first_name} {this.state.selectedFighter.last_name}</h4>
     )
   }
   return(
-    <p>Name: {this.state.selectedFighter.first_name} "{this.state.selectedFighter.nickname}" {this.state.selectedFighter.last_name}</p>
+    <h4 className="selectedFighter-name">{this.state.selectedFighter.first_name} "{this.state.selectedFighter.nickname}" {this.state.selectedFighter.last_name}</h4>
   )
 }
 
@@ -69,7 +69,7 @@ getAge(){
   const parsedFightersDOB = Date.parse(fightersDOB);
   const age_millseconds = parsedCurrentDate - parsedFightersDOB
   const age = parseInt(age_millseconds/(1000 * 60 * 60 * 24 * 365.25), 10);
-  return (<p>Age: {age}</p>);
+  return (<div className="selectedFighter-row"><p className="selectedFighter-dem-title">Age</p> <p className="selectedFighter-dem-info">{age}</p></div>);
 }
 
 getCountry(){
@@ -78,42 +78,42 @@ getCountry(){
 
   }
 
-  return(<p>Location: {this.state.selectedFighter.city_residing}, {this.state.selectedFighter.country_residing}</p>);
+  return(<div className="selectedFighter-row"><p className="selectedFighter-dem-title">Location</p> <p className="selectedFighter-dem-info">{this.state.selectedFighter.city_residing}, {this.state.selectedFighter.country_residing}</p></div>);
 }
 
 getWeightClass(){
   if(!this.state.selectedFighter){
     return null;
   }
-  return(<p>Weight Class: {this.state.selectedFighter.weight_class.split("_").join(" ")}</p>)
+  return(<div className="selectedFighter-row"><p className="selectedFighter-dem-title">Weight Class</p> <p className="selectedFighter-dem-info">{this.state.selectedFighter.weight_class.split("_").join(" ")}</p></div>)
 }
 
 getHeight(){
   if(!this.state.selectedFighter){
     return null;
   }
-  return(<p>Height: {this.state.selectedFighter.height_ft}</p>)
+  return(<div className="selectedFighter-row"><p className="selectedFighter-dem-title">Height</p> <p className="selectedFighter-dem-info"> {this.state.selectedFighter.height_ft}</p></div>)
 }
 
 getWeight(){
   if(!this.state.selectedFighter){
     return null;
   }
-  return(<p>Weight {this.state.selectedFighter.weight} lbs</p>)
+  return(<div className="selectedFighter-row"><p className="selectedFighter-dem-title">Weight</p><p className="selectedFighter-dem-info"> {this.state.selectedFighter.weight}</p></div>)
 }
 
 getAverageFightDuration(){
   if(!this.state.selectedFighter){
     return null;
   }
-  return(<p>Average Fight Duration: {this.state.selectedFighter.AverageFightTime} Minutes</p>)
+  return(<div className="selectedFighter-row"><p className="selectedFighter-dem-title">Average Fight Duration</p><p className="selectedFighter-dem-info"> {this.state.selectedFighter.AverageFightTime} Minutes</p></div>)
 }
 
 getStrengths(){
   if(!this.state.selectedFighter){
     return null;
   }
-  return(<p>Strengths: {this.state.selectedFighter.strengths}</p>)
+  return(<div className="selectedFighter-row"><p className="selectedFighter-dem-title">Strengths</p><p className="selectedFighter-dem-info"> {this.state.selectedFighter.strengths}</p></div>)
 }
 
 getMap(){
@@ -133,6 +133,9 @@ getGraphs(){
 render(){
   return(
     <React.Fragment>
+      <div className="buttonContainer">
+        <button className="backToListBtn" onClick={this.props.hideSelectedPlayer}>Back to List</button>
+      </div>
       <div className="imageAndDetails">
         <div className="selectedFighterImage">
           {this.getImage()}
@@ -148,14 +151,18 @@ render(){
           {this.getAverageFightDuration()}
         </div>
       </div>
-      <div className="buttonContainer">
-      <button className="backToListBtn" onClick={this.props.hideSelectedPlayer}>Back to List</button>
-    </div>
-      <div className="fighterBarChart">
-        {this.getGraphs()}
-      </div>
-      <div className="map">
-        {this.getMap()}
+
+      <div className="barChartAndMap-container">
+        <div className="fighterBarChart-container">
+          <h4 className="chart-title">Fight data</h4>
+          {this.getGraphs()}
+        </div>
+
+        <div className="map-container">
+          <h4 className="mapWrapper-title">Locations of past Fights</h4>
+          {this.getMap()}
+        </div>
+
       </div>
 
     </React.Fragment>

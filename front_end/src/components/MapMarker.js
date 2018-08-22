@@ -2,12 +2,11 @@ import React from 'react';
 import { Marker, Popup } from 'react-leaflet';
 
 const MapMarker = (props) => {
-  if(!props.coords){
+  if(props.coords.length === 0){
     return null;
   }
-
   const markers = props.coords.map((coord) => {
-    if (!coord){
+    if (!coord || !coord.lat || !coord.lon || !coord.display_name){
       return null;
     }
     return (

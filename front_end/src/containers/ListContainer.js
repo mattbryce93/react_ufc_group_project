@@ -3,6 +3,7 @@ import _ from 'lodash';
 import List from '../components/List';
 import ListFilter from '../components/ListFilter';
 import './ListContainer.css'
+import Title from '../components/Title';
 
 class ListContainer extends Component{
 
@@ -105,6 +106,8 @@ class ListContainer extends Component{
     }
     return(
       <React.Fragment>
+        {/* <Title/> */}
+        {/* TITLE COMMENTED OUT BUT THIS IS WHERE IT GOES */}
         <div className="list-container">
           <ListFilter
             handleSearchBoxCreation={this.handleSearchBoxFilter}

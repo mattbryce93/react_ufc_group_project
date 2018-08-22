@@ -13,14 +13,14 @@ class FighterBarGraph extends Component{
       return null;
     }
       const data = [["Stat", "", { role: "style" }],
-      ["Wins", this.props.selectedFighter.wins, "color: #3669C9"],
-      ["Losses", this.props.selectedFighter.losses, "color: #DA3B21"],
-      ["Draws", this.props.selectedFighter.draws, "color: #FD9827"]
+      ["Wins", this.props.selectedFighter.wins, "color: rgb(97, 208, 149)"],
+      ["Losses", this.props.selectedFighter.losses, "color: rgb(239, 35, 60)"],
+      ["Draws", this.props.selectedFighter.draws, "color: rgb(141, 153, 174)"]
       ]
 
       const options={
         title: 'Fighter Stats',
-        hAxis: { title: 'Total'},
+        // hAxis: { title: 'Total'},
         legend: 'none',
         animation: {
           startup: true,
@@ -30,7 +30,7 @@ class FighterBarGraph extends Component{
     }
 
     return (
-      <Chart chartType="BarChart" width="100%" height="100%" data={data} options={options}/>
+      <Chart className="barChart" chartType="BarChart" width="100%" height="100%" data={data} options={options}/>
     )
   }
 
@@ -39,10 +39,10 @@ class FighterBarGraph extends Component{
       return null;
     }
     const win_data=[
-          ['Win Type', 'Total'],
-          ['Decisions Wins',     this.props.selectedFighter.decision_wins],
-          ['Technical Knock Outs', this.props.selectedFighter.ko_tko_wins],
-          ['Submissions',  this.props.selectedFighter.submission_wins]
+          ['Win Type', 'Total', {role: "style"}],
+          ['Decisions Wins',     this.props.selectedFighter.decision_wins, "color: rgb(97, 208, 149)"],
+          ['Technical Knock Outs', this.props.selectedFighter.ko_tko_wins, "color: rgb(239, 35, 60)"],
+          ['Submissions',  this.props.selectedFighter.submission_wins, "color: rgb(43, 45, 66)"]
         ]
 
     const win_options={
@@ -87,10 +87,10 @@ class FighterBarGraph extends Component{
 
     return (
       <React.Fragment>
-          <Chart chartType="PieChart" width="200px" height="auto" data={win_data} options={win_options}/>
-          <Chart chartType="PieChart" width="200px" height="auto" data={strike_data} options={strike_options}/>
-          <Chart chartType="PieChart" width="200px" height="auto" data={striking_data} options={striking_options}/>
-          <Chart chartType="PieChart" width="200px" height="auto" data={takedown_data} options={takedown_options}/>
+          <Chart className="pieChart" chartType="PieChart" width="200px" height="auto" data={win_data} options={win_options}/>
+          <Chart className="pieChart" chartType="PieChart" width="200px" height="auto" data={strike_data} options={strike_options}/>
+          <Chart className="pieChart" chartType="PieChart" width="200px" height="auto" data={striking_data} options={striking_options}/>
+          <Chart className="pieChart" chartType="PieChart" width="200px" height="auto" data={takedown_data} options={takedown_options}/>
       </React.Fragment>
     )
   }
@@ -100,10 +100,10 @@ class FighterBarGraph extends Component{
   render(){
     return (
       <React.Fragment>
-        <div className="barChart">
+        <div className="barChart-container">
           {this.renderBarGraphData()}
         </div>
-        <div className="pieChart">
+        <div className="pieChart-container">
           {this.renderPieGraphData()}
         </div>
       </React.Fragment>
