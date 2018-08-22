@@ -4,6 +4,15 @@
  flex-wrap: wrap;
  justify-content: center;
  align-items: center;
+ width: auto;
+ height: 400px;
+ overflow: hidden;
+}
+
+.selectedFighterImage img {
+    width: auto;
+    height: 500px;
+    margin: 200px 50px 0px 20px;
 }
 
 .selectedFighterDetails {
@@ -11,23 +20,52 @@
  flex-direction: column;
  flex-wrap: wrap;
  justify-content: center;
+ padding-right: 10px;
 }
 
 .imageAndDetails {
  display: flex;
  justify-content:flex-start;
  justify-content: center;
+ background: rgb(254, 254, 254);
+ padding: 20px;
+ color: rgb(43, 45, 66, 1);
 }
 
-.imageAndDetails {
- color: red;
+.imageAndDetails p {
+  display: inline;
+}
+
+.selectedFighter-name {
+  font-size: 46px;
+  margin-top: 0px;
+  margin-bottom: 40px;
+}
+
+.selectedFighter-row {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.selectedFighter-dem-title {
+  color: rgb(141, 153, 174);
+}
+
+.selectedFighter-dem-info {
+  color: rgb(43, 45, 66, 1);
 }
 
 .backToListBtn {
-  background-color: red;
+  background-color: rgb(97, 208, 149, 1);
     color: white;
     padding: 15px 32px;
     text-align: center;
     display: inline-block;
     font-size: 16px;
+
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 10px; /* Stay at the top */
+    left: 7px;
 }
