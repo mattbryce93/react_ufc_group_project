@@ -128,6 +128,7 @@ hideListContainer(){
           teamScore={this.state.teamScore}
         />
         {this.hideListContainer()}
+        <Footer/>
       </React.Fragment>
     )
 
