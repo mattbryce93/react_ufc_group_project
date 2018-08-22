@@ -1,6 +1,7 @@
 .fighter-container {
-  margin-left: 180px;
-  margin-top: 20px;
+  margin-left: 80px;
+  margin-top: 50px;
+  margin-right: 80px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
