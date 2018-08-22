@@ -28,7 +28,7 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
       res.json(data)
     })
   })
-  
+
   // Show one fighter
   server.get('/api/fighters/:id', function(req, res){
     fetch(`http://ufc-data-api.ufc.com/api/v3/iphone/fighters/${req.params.id}.json`)
@@ -101,6 +101,7 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
         res.status(500);
         res.send();
       }
+      
       res.status(200);
       res.json(allTeams);
 
