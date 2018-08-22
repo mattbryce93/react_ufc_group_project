@@ -14,6 +14,7 @@ class MapWrapper extends Component{
     }
     this.getCoords = this.getCoords.bind(this);
     this.insertCoords = this.insertCoords.bind(this);
+    this.getAverageCoord = this.getAverageCoord.bind(this);
   }
 
   componentDidMount(){
@@ -39,8 +40,25 @@ class MapWrapper extends Component{
     let coords = this.state.coords;
     let current_coords = this.state.current_coords;
     coords.push(current_coords[0]);
-    this.setState({coords});
+    this.setState({coords}, this.getAverageCoord);
   }
+
+  getAverageCoord(){
+    let coords = this.state.coords;
+    let all_lats = [];
+    _.map(coords, function(coord){
+      all_lats.push(parseFloat(coord.lat));
+    });
+    let all_lons = [];
+    _.map(coords, function(coord){
+      all_lons.push(parseFloat(coord.lon));
+    });
+    let avg_lat = _.meanBy(all_lats);
+    let avg_lon = _.meanBy(all_lons);
+    this.setState({avg_coord: [avg_lat, avg_lon]})
+  }
+
+
 
 
 
@@ -48,7 +66,8 @@ class MapWrapper extends Component{
     if(!this.props.selectedFighter){
       return null;
     }
-    const position = [25, 15];
+
+    const position = this.state.avg_coord;
     return(
       <React.Fragment>
         <p>Locations of past Fights</p>
