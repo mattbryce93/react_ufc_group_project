@@ -134,10 +134,10 @@ getGraphs(){
 render(){
   return(
     <React.Fragment>
+      <div className="buttonContainer">
+        <button className="backToListBtn" onClick={this.props.hideSelectedPlayer}>Back to List</button>
+      </div>
       <div className="imageAndDetails">
-        <div className="buttonContainer">
-          <button className="backToListBtn" onClick={this.props.hideSelectedPlayer}>Back to List</button>
-        </div>
         <div className="selectedFighterImage">
           {this.getImage()}
         </div>
@@ -152,11 +152,14 @@ render(){
           {this.getAverageFightDuration()}
         </div>
       </div>
-      <div className="fighterBarChart">
-        {this.getGraphs()}
-      </div>
-      <div className="map">
-        {this.getMap()}
+      <div className="barChartAndMap-container">
+        <div className="fighterBarChart-container">
+          {this.getGraphs()}
+
+          <div className="map">
+            {this.getMap()}
+          </div>
+        </div>
       </div>
 
     </React.Fragment>
