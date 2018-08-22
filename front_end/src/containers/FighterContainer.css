@@ -1,7 +1,7 @@
 .fighter-container {
-  margin-left: 80px;
+  margin-left: 100px;
   margin-top: 50px;
-  margin-right: 80px;
+  margin-right: 100px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -10,6 +10,15 @@
 @media only screen and (max-width: 1245px) {
   .fighter-container {
     margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 160px;
+  }
+}
+
+@media only screen and (max-height: 785px) {
+  .fighter-container {
+    margin-left: 0px;
+    margin-right: 0px;
     margin-top: 160px;
   }
 }
