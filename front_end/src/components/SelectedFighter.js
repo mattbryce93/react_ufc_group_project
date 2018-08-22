@@ -135,6 +135,9 @@ render(){
   return(
     <React.Fragment>
       <div className="imageAndDetails">
+        <div className="buttonContainer">
+          <button className="backToListBtn" onClick={this.props.hideSelectedPlayer}>Back to List</button>
+        </div>
         <div className="selectedFighterImage">
           {this.getImage()}
         </div>
@@ -149,9 +152,6 @@ render(){
           {this.getAverageFightDuration()}
         </div>
       </div>
-      <div className="buttonContainer">
-      <button className="backToListBtn" onClick={this.props.hideSelectedPlayer}>Back to List</button>
-    </div>
       <div className="fighterBarChart">
         {this.getGraphs()}
       </div>

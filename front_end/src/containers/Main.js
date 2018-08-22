@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ListContainer from './ListContainer';
-import Title from '../components/Title'
 import NavBar from '../components/NavBar'
 import TeamContainer from './TeamContainer';
 import FighterContainer from './FighterContainer';
@@ -120,7 +119,6 @@ hideListContainer(){
     return(
       <React.Fragment>
         <NavBar/>
-        <Title/>
         <TeamContainer
           allTeamFighters={this.state.teamFighters}
           handleDeleteAllButton={this.handleDeleteAllButton}
