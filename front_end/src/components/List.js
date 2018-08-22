@@ -11,7 +11,9 @@ const List = (props) => {
     return <ListItem fighter={fighter} index={index} key={index}
       currentTeam={props.currentTeam}
       handleFighterSelect={props.handleFighterSelect}
-      handleAddToTeamButton={props.handleAddToTeamButton}/>
+      handleAddToTeamButton={props.handleAddToTeamButton}
+      handleClicked={props.handleClicked}
+    />
     })
 
     return(

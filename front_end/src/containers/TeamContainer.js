@@ -13,6 +13,7 @@ const TeamContainer = (props) => {
           allTeamFighters={props.allTeamFighters}
           handleDeleteAllButton={props.handleDeleteAllButton}
           handleDeleteOneButton={props.handleDeleteOneButton}
+          handleClicked={props.handleClicked}
           teamScore={props.teamScore}
         />
       </div>

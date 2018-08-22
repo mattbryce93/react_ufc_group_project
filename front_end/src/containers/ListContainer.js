@@ -12,14 +12,18 @@ class ListContainer extends Component{
       filteredFighters: null,
       textFilter: null,
       weightFilter: null,
-      titleFilter: null
+      titleFilter: null,
+
     }
     this.handleSearchBoxFilter = this.handleSearchBoxFilter.bind(this);
     this.getWeightClasses = this.getWeightClasses.bind(this);
     this.handleWeightClassFilter = this.handleWeightClassFilter.bind(this);
     this.processFiltering = this.processFiltering.bind(this);
     this.handleTitleFilter = this.handleTitleFilter.bind(this);
+
   }
+
+
 
   handleSearchBoxFilter(searchBoxFilter){
     this.setState({textFilter: searchBoxFilter}, this.processFiltering)
@@ -35,7 +39,7 @@ class ListContainer extends Component{
 
   processFiltering(){
     let filteredFighters = this.props.allFighters;
-    
+
     if(this.state.textFilter){
       //incorporate first and last name filtering here
       let filter = _.filter(this.state.textFilter.split(' '), function(string){
@@ -88,6 +92,7 @@ class ListContainer extends Component{
       listedFighters={this.props.allFighters}
       handleFighterSelect={this.props.handleFighterSelect}
       handleAddToTeamButton={this.props.handleAddToTeamButton}
+
     />;
     if(this.state.filteredFighters){
       generatedList = <List
@@ -95,6 +100,7 @@ class ListContainer extends Component{
         listedFighters={this.state.filteredFighters}
         handleFighterSelect={this.props.handleFighterSelect}
         handleAddToTeamButton={this.props.handleAddToTeamButton}
+
       />;
     }
     return(
@@ -104,7 +110,8 @@ class ListContainer extends Component{
             handleSearchBoxCreation={this.handleSearchBoxFilter}
             weights={this.getWeightClasses}
             onWeightSelected={this.handleWeightClassFilter}
-            onTitleSelected={this.handleTitleFilter}/>
+            onTitleSelected={this.handleTitleFilter}
+          />
             {generatedList}
           </div>
         </React.Fragment>

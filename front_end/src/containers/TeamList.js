@@ -4,6 +4,7 @@ import DeleteAllFromTeamButton from '../components/DeleteAllFromTeamButton'
 import './TeamList.css'
 
 const TeamList = (props) => {
+  console.log(props);
 
   const allTeamFighterItems = props.allTeamFighters.map((fighter, index) => {
     return <TeamListItem
@@ -11,6 +12,8 @@ const TeamList = (props) => {
       index={index}
       key={index}
       handleDeleteOneButton = {props.handleDeleteOneButton}
+      handleClicked={props.handleClicked}
+
     />
   })
 
@@ -26,6 +29,7 @@ const TeamList = (props) => {
         {allTeamFighterItems}
         <DeleteAllFromTeamButton
           handleDeleteAllButton={props.handleDeleteAllButton}
+          handleClicked={props.handleClicked}
         />
       </div>
 
