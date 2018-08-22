@@ -107,10 +107,8 @@ hideListContainer(){
   }
   handleClicked(){
     let holder = this.state.allFighters
-    console.log(holder);
     this.setState({allFighters: null})
     this.setState({allFighters: holder});
-
   }
 
 
