@@ -4,15 +4,21 @@ import DeleteAllFromTeamButton from '../components/DeleteAllFromTeamButton'
 import './TeamList.css'
 
 const TeamList = (props) => {
+  let allTeamFighterItems = null;
 
-  const allTeamFighterItems = props.allTeamFighters.map((fighter, index) => {
-    return <TeamListItem
-      fighter={fighter}
-      index={index}
-      key={index}
-      handleDeleteOneButton = {props.handleDeleteOneButton}
-    />
-  })
+  if (props.allTeamFighters.length === 0){
+    allTeamFighterItems = <p className="empty-team-message">Fighters List Empty</p>
+  } else {
+    allTeamFighterItems = props.allTeamFighters.map((fighter, index) => {
+      return <TeamListItem
+        fighter={fighter}
+        index={index}
+        key={index}
+        handleDeleteOneButton = {props.handleDeleteOneButton}
+      />
+    })
+  }
+
 
   return(
     <React.Fragment>
