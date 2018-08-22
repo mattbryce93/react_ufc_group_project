@@ -1,0 +1,38 @@
+.team-container {
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 100px; /* Stay at the top */
+  left: 0px;
+  /* background-color: rgb(74, 189, 172, 0.7); */
+  background-color: rgb(254, 252, 245);
+  color: black;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+@media only screen and (max-width: 1245px) {
+  .team-container {
+    left: 50%;
+    width: auto;
+    transform: translate(-50%, 0);
+    top: 0px; /* Stay at the top */
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* .team-container h4 {
+    margin-top: -10px;
+    margin-bottom: -10px;
+    -webkit-transform: rotate(-90deg);
+  } */
+
+
+}

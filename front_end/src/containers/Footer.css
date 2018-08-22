@@ -1,0 +1,34 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 12px;
+  margin-left: 160px;
+}
+
+@media only screen and (max-width: 1245px) {
+  .footer {
+    margin-left: 0px;
+  }
+}
+
+.footer img{
+  width: 10%;
+}
+
+.footer .linkedin{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 20%;
+}
+
+.footer .github{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 20%;
+}
+
+.footer a{
+  margin: 7px;
+}

@@ -1,0 +1,52 @@
+.fighter-container {
+  margin-left: 80px;
+  margin-top: 50px;
+  margin-right: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 1245px) {
+  .fighter-container {
+    margin-left: 0px;
+    margin-top: 160px;
+  }
+}
+
+.barChartAndMap-container {
+  /* width: 80vw; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+
+.fighterBarChart-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+  width: 45%;
+  max-width: 640px;
+}
+
+.pieChart-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* width: 50%; */
+}
+
+.pieChart {
+
+}
+
+.barChart-container {
+  /* width: 50%; */
+}
+
+.barChart {
+  /* width: 100%; */
+  align-items: center;
+}

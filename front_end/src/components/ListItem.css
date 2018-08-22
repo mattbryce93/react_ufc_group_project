@@ -1,0 +1,80 @@
+.fighterTable img {
+  width: 90px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.fighterTable td {
+  border-bottom: 1px solid rgb(97, 208, 149, 1);
+
+}
+
+.fighterTable-list-item {
+  /* margin-right: 10px; */
+}
+
+.fighterTable-list-item:hover{
+  /* background-color: rgb(73, 73, 73, 0.05) */
+  background-color: rgb(239, 35, 60, 0.1);
+  /* box-shadow: 0px 3px 15px rgba(0,0,0,0.1); */
+}
+
+.fighterTable-fighter-name {
+  font-size: 24px;
+  margin-right: 10px;
+  padding-left: 10px;
+  font-weight: 900;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.fighterTable-fighter-weightclass {
+  padding-right: 10px;
+  padding-left: 10px;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.fighterTable-list-item-addToTeam-BUTTON-false {
+  visibility: visible;
+  background-color: rgb(97, 208, 149);
+  font-size: 12px;
+  padding: 10px;
+  margin-left: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: white;
+  border: none;
+}
+
+.fighterTable-list-item-addToTeam-BUTTON-true {
+  visibility: hidden;
+  background-color: rgb(97, 208, 149);
+  font-size: 12px;
+  margin-left: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: white;
+  border: none;
+}
+
+.fighterTable-fighter-W {
+  color: rgb(97, 208, 149);
+  width: 25px;
+  text-align: center;
+}
+
+.fighterTable-fighter-L {
+  color: rgb(133, 133, 113);
+  width: 25px;
+  text-align: center;
+}
+
+.fighterTable-fighter-D {
+  color: rgb(190, 190, 190);
+  width: 25px;
+  text-align: center;
+}
