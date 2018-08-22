@@ -143,7 +143,7 @@ hideListContainer(){
 
         />
         {this.hideListContainer()}
-        <Footer/>
+        {/* <Footer/> */}
       </React.Fragment>
     )
 
