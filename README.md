@@ -1,4 +1,4 @@
-## JavaScript Project Specs
+## Fan UFC Project Brief
 
 
 # Sports Dashboard
