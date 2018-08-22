@@ -70,7 +70,6 @@ class MapWrapper extends Component{
     const position = this.state.avg_coord;
     return(
       <React.Fragment>
-        <p>Locations of past Fights</p>
         <Map zoom={1.5} center={position}>
           <TileLayer
             url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png"

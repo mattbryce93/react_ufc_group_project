@@ -12,7 +12,7 @@
 .selectedFighterImage img {
     width: auto;
     height: 500px;
-    margin: 200px 80px 0px 40px;
+    margin: 200px 50px 0px 40px;
 }
 
 .selectedFighterDetails {
@@ -28,10 +28,29 @@
  justify-content: center;
  background: rgb(254, 254, 254);
  padding: 20px;
+ color: rgb(43, 45, 66, 1);
 }
 
-.imageAndDetails {
- color: red;
+.imageAndDetails p {
+  display: inline;
+}
+
+.selectedFighter-name {
+  font-size: 36px;
+  margin-top: 0px;
+}
+
+.selectedFighter-row {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.selectedFighter-dem-title {
+  color: rgb(141, 153, 174);
+}
+
+.selectedFighter-dem-info {
+  color: rgb(43, 45, 66, 1);
 }
 
 .backToListBtn {
