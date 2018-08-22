@@ -15,6 +15,7 @@ const TeamList = (props) => {
         index={index}
         key={index}
         handleDeleteOneButton = {props.handleDeleteOneButton}
+        handleClicked={props.handleClicked}
       />
     })
   }
@@ -32,6 +33,7 @@ const TeamList = (props) => {
         {allTeamFighterItems}
         <DeleteAllFromTeamButton
           handleDeleteAllButton={props.handleDeleteAllButton}
+          handleClicked={props.handleClicked}
         />
       </div>
 

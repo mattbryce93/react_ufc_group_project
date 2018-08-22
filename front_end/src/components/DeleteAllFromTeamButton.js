@@ -49,7 +49,8 @@ const DeleteAllFromTeamButton = (props) => {
       body: JSON.stringify(teamData), // body data type must match "Content-Type" header
     })
     .then(response => response.json())
-    .then(json => props.handleDeleteAllButton()); // parses response to JSON
+    .then(json => props.handleDeleteAllButton()) // parses response to JSON
+    .then((result) => props.handleClicked())
   }
 
   const deleteTeam = (url) => {
