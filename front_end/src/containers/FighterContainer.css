@@ -13,21 +13,23 @@
 }
 
 .barChartAndMap-container {
-  width: 80vw;
+  /* width: 80vw; */
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .fighterBarChart-container {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
   padding: 20px;
-  width: auto;
+  width: 45%
 }
 
 .pieChart-container {
   display: flex;
   flex-wrap: wrap;
-  width: 50%;
+  /* width: 50%; */
 }
 
 .pieChart {
@@ -35,10 +37,10 @@
 }
 
 .barChart-container {
-  width: 50%;
+  /* width: 50%; */
 }
 
 .barChart {
-  width: 100%;
+  /* width: 100%; */
   align-items: center;
 }

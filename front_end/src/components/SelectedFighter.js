@@ -155,11 +155,12 @@ render(){
       <div className="barChartAndMap-container">
         <div className="fighterBarChart-container">
           {this.getGraphs()}
-
-          <div className="map">
-            {this.getMap()}
-          </div>
         </div>
+
+        <div className="map">
+          {this.getMap()}
+        </div>
+
       </div>
 
     </React.Fragment>
