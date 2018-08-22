@@ -6,10 +6,15 @@ const MapMarker = (props) => {
     return null;
   }
 
-  const markers = props.coords.map((coords) => {
-    return <Marker position = {[coords.lat, coords.lon]}>
-      <Popup>{coords.display_name}</Popup>
+  const markers = props.coords.map((coord) => {
+    if (!coord){
+      return null;
+    }
+    return (
+      <Marker position = {[coord.lat, coord.lon]}>
+      <Popup>{coord.display_name}</Popup>
     </Marker>
+    )
   })
 
   return(
