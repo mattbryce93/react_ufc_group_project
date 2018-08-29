@@ -62,12 +62,29 @@
   text-align: center;
   display: inline-block;
   font-size: 16px;
-
+  border-bottom: 5px solid transparent;
   width: 160px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 10px; /* Stay at the top */
   left: 7px;
+}
+
+.backToListBtn:hover {
+  cursor: pointer;
+  border-bottom: 5px solid rgb(43, 45, 66, 0.4);
+}
+
+.backToListBtn:focus {
+  outline: none;
+}
+
+.backToListBtn:active {
+  transform: scale(0.99);
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
 @media only screen and (max-width: 1245px) {
