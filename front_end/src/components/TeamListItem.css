@@ -25,6 +25,21 @@
   padding-left: 10px;
   padding-right: 10px;
   border: none;
+  cursor: pointer;
+}
+
+.teamListItem-delete-one-BUTTON:hover {
+  background-color: rgb(43, 45, 66, 1.0);
+  color: white;
+}
+
+.teamListItem-delete-one-BUTTON:active{
+  transform: scale(0.95);
+  outline: none;
+}
+
+.teamListItem-delete-one-BUTTON:focus {
+  outline: none;
 }
 
 
