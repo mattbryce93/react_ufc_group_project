@@ -3,8 +3,15 @@
   height: auto;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 60px;
   /* border-radius: 40px; */
   /* align-items: center; */
+}
+
+.title-img {
+  width: auto;
+  height: 60px;
+  opacity: 0.9;
 }
 
 .fan{

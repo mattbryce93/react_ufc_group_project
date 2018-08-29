@@ -8,11 +8,12 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 5px;
+  text-align: center;
 }
 
 .teamListItem-divider {
-  margin-top: 7px;
-  margin-bottom: 15px;
+  margin-top: 5px;
+  margin-bottom: 10px;
   height:1px;
   width: 140%;
   background:rgb(97, 208, 149);
@@ -24,6 +25,21 @@
   padding-left: 10px;
   padding-right: 10px;
   border: none;
+  cursor: pointer;
+}
+
+.teamListItem-delete-one-BUTTON:hover {
+  background-color: rgb(43, 45, 66, 1.0);
+  color: white;
+}
+
+.teamListItem-delete-one-BUTTON:active{
+  transform: scale(0.95);
+  outline: none;
+}
+
+.teamListItem-delete-one-BUTTON:focus {
+  outline: none;
 }
 
 
@@ -32,6 +48,23 @@
     margin-top: 0px;
     margin-bottom: 0px;
     background:rgb(74, 189, 172, 0.0);
+  }
+  .teamListItem {
+    margin-left: 5px;
+    margin-bottom: 5px;
+  }
+
+}
+
+@media only screen and (max-height: 785px) {
+  .teamListItem-divider {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background:rgb(74, 189, 172, 0.0);
+  }
+  .teamListItem {
+    margin-left: 5px;
+    margin-bottom: 5px;
   }
 
 }
